@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">DiceHead</string>
+    <string name="descMain">Создавайте своих персонажей и играйте в любом месте в любое время.</string>
+    <string name="diceHead">DiceHead</string>
+    <string name="welcome">Добро пожаловать</string>
+    <string name="create">Создать аккаунт</string>
+    <string name="regist">Уже зарегистрированы?</string>
+    <string name="signIn">Войдите в аккаунт</string>
+    <string name="logInButton">Войте в аккаунт</string>
+    <string name="registNo">Продолжить без регистрации</string>
+    <string name="logInText">Мы скучали по вам</string>
+    <string name="registration">Еще не зарегистрированы?</string>
+    <string name="goRegist">Создайте аккаунт.</string>
+    <string name="login">Логин</string>
+    <string name="password">Пароль</string>
+    <string name="logIn">Рады видеть вас с нами</string>
+    <string name="logIn_name">Логин</string>
+    <string name="logIn_gmail">Почта</string>
+    <string name="logIn_password">Пароль</string>
+    <string name="logIn_nickname">Имя</string>
+</resources>
