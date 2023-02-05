@@ -1,8 +1,7 @@
-package com.example.diceheadproj;
+package com.example.diceheadproj.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.ConstraintSet;
 
 import android.content.Intent;
 import android.graphics.RenderEffect;
@@ -12,7 +11,9 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+
+import com.example.diceheadproj.R;
+import com.example.diceheadproj.activity.MainActivity;
 
 public class StartActivity extends AppCompatActivity implements View.OnTouchListener {
 

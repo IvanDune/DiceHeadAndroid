@@ -17,5 +17,40 @@
     <string name="logIn_name">Логин</string>
     <string name="logIn_gmail">Почта</string>
     <string name="logIn_password">Пароль</string>
-    <string name="logIn_nickname">Имя</string>
+    <string name="logIn_nickname">Никнейм</string>
+    <string name="createPerson">Создать персонажа</string>
+    <string name="generatePerson">Сгенерировать персонажа</string>
+    <string name="generateDice">Генератор бросков</string>
+    <string name="createProfile">Создать профиль</string>
+    <string name="trait">Черты и особенности</string>
+    <string name="characterNameTraits">Имя персонажа</string> <!--надо будеь заменить на имя каждого-->
+    <string name="traits">Черты</string>
+    <string name="enterTraits">Введите черты</string>
+    <string name="ideal">Идеал</string>
+    <string name="enterIdeal">Введите идеал</string>
+    <string name="affection">Привязанности</string>
+    <string name="enterAffection">Введите привязанности</string>
+    <string name="limitation">Недостатки</string>
+    <string name="enterLimitation">Введите недостатки</string>
+    <string name="addInfo">Дополнительно о персонаже</string>
+    <string name="enterAddInfo">Введите дополнительную информацию</string>
+    <string name="saveText">Сохранить изменения</string>
+
+    <string name="character">Персонаж</string>
+    <string name="experience">Опыт</string>
+    <string name="characterName">Имя персонажа</string>
+    <string name="characterDescription">Описание персонажа</string>
+    <string name="characterRace">Раса</string>
+    <string name="characterClass">Класс</string>
+    <string name="characterOutlook">Мировоззрение</string>
+    <string name="characterBack">Предыстория</string>
+    <string name="textHP">ХП</string>
+    <string name="textAC">КД</string>
+    <string name="textHitDice">Кость Хитов</string>
+    <string name="textDeath">Успехи</string>
+
+    <string name="playersHandbook">Книга игрока</string>
+
+    <string name="myCharacters">Мои персонажи</string>
+
 </resources>

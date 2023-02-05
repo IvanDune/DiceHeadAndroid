@@ -8,10 +8,10 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayoutStarsSignIn"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="48dp"
-        tools:layout_editor_absoluteY="-118dp" >
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/imageStar6"
@@ -136,44 +136,83 @@
 
     <ImageView
         android:id="@+id/imageLight"
-        android:layout_width="338dp"
-        android:layout_height="485dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="27dp"
         android:layout_marginTop="-120dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/light_signin" />
 
-    <EditText
-        android:id="@+id/login"
-        android:layout_width="353dp"
-        android:layout_height="52dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayoutLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="356dp"
-        android:alpha="0.5"
-        android:backgroundTint="@color/basicPurple"
-        android:ems="10"
-        android:fontFamily="@font/helvetica_regular"
-        android:inputType="textPersonName"
-        android:text="@string/login"
-        android:textColor="@color/white"
+        android:layout_marginTop="39dp"
+        android:background="@drawable/design_text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView">
 
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="353dp"
-        android:layout_height="52dp"
+        <ImageView
+            android:id="@+id/imageEnterLogIn"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/enterlogin" />
+
+
+        <EditText
+            android:id="@+id/login"
+            android:layout_width="328dp"
+            android:layout_height="52dp"
+            android:alpha="0.5"
+            android:ems="10"
+            android:fontFamily="@font/helvetica_regular"
+            android:inputType="textPersonName"
+            android:text="@string/login"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/imageEnterLogIn"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayoutPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:alpha="0.5"
-        android:backgroundTint="@color/basicPurple"
-        android:ems="10"
-        android:fontFamily="@font/helvetica_regular"
-        android:inputType="textPersonName"
-        android:text="@string/password"
-        android:textColor="@color/white"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/design_text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayoutLogin">
+
+        <ImageView
+            android:id="@+id/imageEnterPassword"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/enterpassword" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="328dp"
+            android:layout_height="52dp"
+            android:alpha="0.5"
+            android:ems="10"
+            android:fontFamily="@font/helvetica_regular"
+            android:inputType="textPersonName"
+            android:text="@string/password"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/imageEnterPassword"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

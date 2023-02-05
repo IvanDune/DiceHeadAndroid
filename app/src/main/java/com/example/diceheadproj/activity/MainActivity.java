@@ -1,4 +1,4 @@
-package com.example.diceheadproj;
+package com.example.diceheadproj.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -9,13 +9,12 @@ import android.graphics.Shader;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.security.acl.Group;
+import com.example.diceheadproj.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -79,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intSign);
                 break;
             case R.id.textRegistNo:
-                Intent intRegistNo = new Intent(this, CharacterActivity.class);
+                Intent intRegistNo = new Intent(this, NoLoginFirstActivity.class);
                 startActivity(intRegistNo);
                 break;
             default:

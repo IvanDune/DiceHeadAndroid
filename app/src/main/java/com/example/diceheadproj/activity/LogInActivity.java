@@ -1,4 +1,4 @@
-package com.example.diceheadproj;
+package com.example.diceheadproj.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -8,11 +8,11 @@ import android.graphics.RenderEffect;
 import android.graphics.Shader;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.ConditionVariable;
-import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.diceheadproj.R;
 
 public class LogInActivity extends AppCompatActivity implements View.OnClickListener{
 

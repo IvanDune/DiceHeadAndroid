@@ -7,9 +7,11 @@
     android:background="@color/background">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/constraintLayoutStarsLogIn">
+        android:id="@+id/constraintLayoutStarsLogIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/imageStar1"
@@ -77,12 +79,13 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/star" />
 
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
     <TextView
-        android:id="@+id/textLogIn"
+        android:id="@+id/textHello"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -94,66 +97,154 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/textNickname"
-        android:layout_width="353dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="72dp"
-        android:alpha="0.5"
-        android:backgroundTint="@color/basicPurple"
-        android:ems="10"
-        android:fontFamily="@font/helvetica_regular"
-        android:inputType="textPersonName"
-        android:text="@string/logIn_name"
-        android:textColor="@color/white"
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/linearLayoutCreate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textLogIn" />
+        app:layout_constraintTop_toBottomOf="@+id/textHello">
 
-    <EditText
-        android:id="@+id/editTextTextEmailAddress"
-        android:layout_width="353dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="20dp"
-        android:alpha="0.5"
-        android:backgroundTint="@color/basicPurple"
-        android:ems="10"
-        android:fontFamily="@font/helvetica_regular"
-        android:inputType="textEmailAddress"
-        android:text="@string/logIn_gmail"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textNickname" />
 
-    <EditText
-        android:id="@+id/editTextTextPassword"
-        android:layout_width="353dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="20dp"
-        android:alpha="0.5"
-        android:backgroundTint="@color/basicPurple"
-        android:ems="10"
-        android:fontFamily="@font/helvetica_regular"
-        android:inputType="textPassword"
-        android:text="@string/logIn_password"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayoutLogIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="72dp"
+            android:background="@drawable/design_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textHello">
 
-    <EditText
-        android:id="@+id/editTextTextPersonName2"
-        android:layout_width="353dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="20dp"
-        android:alpha="0.5"
-        android:backgroundTint="@color/basicPurple"
-        android:ems="10"
-        android:fontFamily="@font/helvetica_regular"
-        android:inputType="textPersonName"
-        android:text="@string/logIn_nickname"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+            <ImageView
+                android:id="@+id/imageLogIn"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/enterlogin" />
+
+
+            <EditText
+                android:id="@+id/textLogIn"
+                android:layout_width="328dp"
+                android:layout_height="52dp"
+                android:alpha="0.5"
+                android:ems="10"
+                android:fontFamily="@font/helvetica_regular"
+                android:inputType="textPersonName"
+                android:text="@string/logIn_name"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toEndOf="@+id/imageLogIn"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayoutEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/design_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayoutLogIn">
+
+            <ImageView
+                android:id="@+id/imageEmail"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/registrationmail" />
+
+            <EditText
+                android:id="@+id/editTextEmailAddress"
+                android:layout_width="328dp"
+                android:layout_height="52dp"
+                android:alpha="0.5"
+                android:ems="10"
+                android:fontFamily="@font/helvetica_regular"
+                android:inputType="textEmailAddress"
+                android:text="@string/logIn_gmail"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toEndOf="@+id/imageEmail"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayoutPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/design_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayoutEmail">
+
+            <ImageView
+                android:id="@+id/imagePassword"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/enterpassword" />
+
+            <EditText
+                android:id="@+id/editTextPassword"
+                android:layout_width="328dp"
+                android:layout_height="52dp"
+                android:alpha="0.5"
+                android:ems="10"
+                android:fontFamily="@font/helvetica_regular"
+                android:inputType="textPersonName"
+                android:text="@string/logIn_password"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toEndOf="@+id/imagePassword"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayoutNickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/design_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayoutPassword">
+
+            <ImageView
+                android:id="@+id/imageNickname"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/registrationname" />
+
+            <EditText
+                android:id="@+id/editTextNickname"
+                android:layout_width="328dp"
+                android:layout_height="52dp"
+                android:alpha="0.5"
+                android:ems="10"
+                android:fontFamily="@font/helvetica_regular"
+                android:inputType="textPersonName"
+                android:text="@string/logIn_nickname"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toEndOf="@+id/imageNickname"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
     <ImageView
         android:id="@+id/imageLight"
@@ -169,7 +260,7 @@
         android:id="@+id/textView3"
         android:layout_width="183dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="666dp"
+        android:layout_marginTop="720dp"
         android:alpha="0.75"
         android:fontFamily="@font/helvetica_regular"
         android:gravity="center"
@@ -192,6 +283,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
+    <Button
+        android:id="@+id/buttonCreateAccount"
+        android:layout_width="357dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/basicPurple"
+        android:fontFamily="@font/helvetica_bold"
+        android:text="@string/saveText"
+        android:textColor="@color/background"
+        android:textSize="16sp"
+        app:cornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCreate" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
