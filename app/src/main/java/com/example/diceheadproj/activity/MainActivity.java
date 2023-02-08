@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.diceheadproj.Database;
 import com.example.diceheadproj.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_page);
+        Database database = new Database();
 
         Button butCreate = (Button) findViewById(R.id.createButton);
         TextView textSignIn = (TextView) findViewById(R.id.textLogIn);
