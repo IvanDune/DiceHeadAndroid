@@ -47,10 +47,20 @@
     <string name="textHP">ХП</string>
     <string name="textAC">КД</string>
     <string name="textHitDice">Кость Хитов</string>
-    <string name="textDeath">Успехи</string>
+    <string name="textHitDiceResult">Итого:</string>
+    <string name="textDeathWin">Успехи</string>
+    <string name="textDeathLose">Провалы</string>
 
     <string name="playersHandbook">Книга игрока</string>
 
     <string name="myCharacters">Мои персонажи</string>
+
+    <string name="strength">СИЛ</string>
+    <string name="dexterity">ЛОВ</string>
+    <string name="constitution">ТЕЛ</string>
+    <string name="intelligence">ИНТ</string>
+    <string name="wisdom">МДР</string>
+    <string name="charisma">ХАР</string>
+    <string name="pasWis">Пассивная мудрость:</string>
 
 </resources>
