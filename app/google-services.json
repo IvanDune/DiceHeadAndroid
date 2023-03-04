@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1013948744578",
+    "project_id": "dicehead-862ee",
+    "storage_bucket": "dicehead-862ee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1013948744578:android:aac35c6b15f87f761f859b",
+        "android_client_info": {
+          "package_name": "com.example.diceheadproj"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1013948744578-26g6iulkq4eg3dmj4pvnlmv04hu5mmqd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIWncreCWoqgbswyteylsetoYOI8YE7gI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1013948744578-26g6iulkq4eg3dmj4pvnlmv04hu5mmqd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
