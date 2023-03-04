@@ -10,7 +10,7 @@
     <ScrollView
         android:id="@+id/scrolMain"
         android:layout_width="match_parent"
-        android:layout_height="1000dp"
+        android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -18,6 +18,8 @@
             android:id="@+id/constraintMain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
+
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayoutCharacterStars"
@@ -347,20 +349,15 @@
                     app:layout_constraintStart_toEndOf="@+id/constraintLayoutRace"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <TextView
-                        android:id="@+id/textCharacterClass"
-                        android:layout_width="wrap_content"
+                    <Spinner
+                        android:id="@+id/spinnerClasses"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginBottom="4dp"
-                        android:fontFamily="@font/helvetica_bold"
-                        android:text="@string/characterClass"
-                        android:textColor="@color/white"
-                        android:textSize="12sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
+                        android:textAlignment="center"
+                        android:spinnerMode="dialog"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -371,20 +368,28 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <TextView
-                        android:id="@+id/textCharacterRace"
-                        android:layout_width="wrap_content"
+                    <Spinner
+                        android:id="@+id/spinnerRace"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginBottom="4dp"
-                        android:fontFamily="@font/helvetica_bold"
-                        android:text="@string/characterRace"
-                        android:textColor="@color/white"
-                        android:textSize="12sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
+                        android:textAlignment="center"
+                        android:spinnerMode="dialog"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/textCharacterRace"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="4dp"-->
+<!--                        android:layout_marginBottom="4dp"-->
+<!--                        android:fontFamily="@font/helvetica_bold"-->
+<!--                        android:text="@string/characterRace"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="12sp"-->
+<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent" />-->
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -397,18 +402,12 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/constraintLayoutRace">
 
-                    <TextView
-                        android:id="@+id/textCharacterOutlook"
-                        android:layout_width="wrap_content"
+                    <Spinner
+                        android:id="@+id/spinnerOutlook"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginBottom="4dp"
-                        android:fontFamily="@font/helvetica_bold"
-                        android:text="@string/characterOutlook"
-                        android:textColor="@color/white"
-                        android:textSize="12sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
+                        android:textAlignment="center"
+                        android:spinnerMode="dialog"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -424,18 +423,12 @@
                     app:layout_constraintStart_toEndOf="@+id/constraintLayoutOutlook"
                     app:layout_constraintTop_toBottomOf="@+id/constraintLayoutClass">
 
-                    <TextView
-                        android:id="@+id/textCharacterBack"
-                        android:layout_width="wrap_content"
+                    <Spinner
+                        android:id="@+id/spinnerBack"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginBottom="4dp"
-                        android:fontFamily="@font/helvetica_bold"
-                        android:text="@string/characterBack"
-                        android:textColor="@color/white"
-                        android:textSize="12sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
+                        android:textAlignment="center"
+                        android:spinnerMode="dialog"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -456,7 +449,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
+            <EditText
                 android:id="@+id/textCharacterName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -573,13 +566,16 @@
                     android:id="@+id/textHitDiceResult"
                     android:layout_width="44dp"
                     android:layout_height="30dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="4dp"
                     android:fontFamily="@font/helvetica_bold"
                     android:gravity="center"
                     android:text='@string/textHitDiceResult'
                     android:textColor="@color/basicPurple"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textDice" />
 
                 <TextView
                     android:id="@+id/textDeathWin"
@@ -619,16 +615,17 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textHitDice" />
 
-                <TextView
+                <EditText
                     android:id="@+id/textDiceResult"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="20dp"
+                    android:layout_height="34dp"
                     android:layout_marginStart="4dp"
-                    android:layout_marginBottom="4dp"
                     android:fontFamily="@font/helvetica_bold"
                     android:text="3"
                     android:textColor="@color/white"
+                    android:backgroundTint="@color/background"
                     android:textSize="12sp"
+                    android:gravity="center"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/textHitDiceResult" />
 
@@ -770,9 +767,11 @@
                 <EditText
                     android:id="@+id/editTextNumberConstitution2"
                     android:layout_width="20dp"
-                    android:layout_height="28dp"
+                    android:layout_height="34dp"
                     android:backgroundTint="@color/basicPurple"
                     android:ems="10"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
                     android:inputType="number"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/textView5"
@@ -789,7 +788,7 @@
                         android:id="@+id/imageStrength"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
+                        android:layout_marginTop="12dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@drawable/strengthimage" />
@@ -798,7 +797,8 @@
                         android:id="@+id/strengthName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="1dp"
+                        android:layout_marginStart="9dp"
+                        android:layout_marginTop="8dp"
                         android:fontFamily="@font/helvetica_bold"
                         android:text="@string/strength"
                         android:textColor="@color/basicPurple"
@@ -809,10 +809,12 @@
                     <EditText
                         android:id="@+id/editTextNumberStrength"
                         android:layout_width="20dp"
-                        android:layout_height="28dp"
+                        android:layout_height="34dp"
                         android:backgroundTint="@color/basicPurple"
                         android:ems="10"
                         android:inputType="number"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
                         app:layout_constraintStart_toEndOf="@+id/strengthName"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
@@ -829,7 +831,7 @@
                         android:id="@+id/imageDexterity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
+                        android:layout_marginTop="12dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@drawable/dexterityimage" />
@@ -838,6 +840,8 @@
                         android:id="@+id/dexterityName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
                         android:fontFamily="@font/helvetica_bold"
                         android:text="@string/dexterity"
                         android:textColor="@color/basicPurple"
@@ -848,10 +852,12 @@
                     <EditText
                         android:id="@+id/editTextNumberDexterity"
                         android:layout_width="20dp"
-                        android:layout_height="28dp"
+                        android:layout_height="34dp"
                         android:backgroundTint="@color/basicPurple"
                         android:ems="10"
                         android:inputType="number"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
                         app:layout_constraintStart_toEndOf="@+id/dexterityName"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
@@ -868,7 +874,7 @@
                         android:id="@+id/imageConstitution"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
+                        android:layout_marginTop="12dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@drawable/constitutionimage" />
@@ -877,7 +883,8 @@
                         android:id="@+id/constitutionName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="3dp"
+                        android:layout_marginStart="11dp"
+                        android:layout_marginTop="8dp"
                         android:fontFamily="@font/helvetica_bold"
                         android:text="@string/constitution"
                         android:textColor="@color/basicPurple"
@@ -888,9 +895,11 @@
                     <EditText
                         android:id="@+id/editTextNumberConstitution"
                         android:layout_width="20dp"
-                        android:layout_height="28dp"
+                        android:layout_height="34dp"
                         android:backgroundTint="@color/basicPurple"
                         android:ems="10"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
                         android:inputType="number"
                         app:layout_constraintStart_toEndOf="@+id/constitutionName"
                         app:layout_constraintTop_toTopOf="parent"
@@ -900,7 +909,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintIntelligence"
                     android:layout_width="wrap_content"
-                    android:layout_height="28dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="100dp"
                     app:layout_constraintStart_toEndOf="@+id/constraintStrength"
                     app:layout_constraintTop_toTopOf="parent">
@@ -909,7 +918,7 @@
                         android:id="@+id/imageIntelligence"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
+                        android:layout_marginTop="12dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@drawable/intelligenceimage" />
@@ -918,7 +927,8 @@
                         android:id="@+id/intelligenceName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="3dp"
+                        android:layout_marginStart="11dp"
+                        android:layout_marginTop="8dp"
                         android:fontFamily="@font/helvetica_bold"
                         android:text="@string/intelligence"
                         android:textColor="@color/basicPurple"
@@ -929,10 +939,12 @@
                     <EditText
                         android:id="@+id/editTextNumberIntelligence"
                         android:layout_width="20dp"
-                        android:layout_height="28dp"
+                        android:layout_height="34dp"
                         android:backgroundTint="@color/basicPurple"
                         android:ems="10"
                         android:inputType="number"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
                         app:layout_constraintStart_toEndOf="@+id/intelligenceName"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
@@ -950,7 +962,7 @@
                         android:id="@+id/imageWisdom"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
+                        android:layout_marginTop="12dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@drawable/wisdomimage" />
@@ -959,7 +971,8 @@
                         android:id="@+id/wisdomName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="1dp"
+                        android:layout_marginStart="9dp"
+                        android:layout_marginTop="8dp"
                         android:fontFamily="@font/helvetica_bold"
                         android:text="@string/wisdom"
                         android:textColor="@color/basicPurple"
@@ -970,10 +983,12 @@
                     <EditText
                         android:id="@+id/editTextNumberWisdom"
                         android:layout_width="20dp"
-                        android:layout_height="28dp"
+                        android:layout_height="34dp"
                         android:backgroundTint="@color/basicPurple"
                         android:ems="10"
                         android:inputType="number"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
                         app:layout_constraintStart_toEndOf="@+id/wisdomName"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
@@ -991,7 +1006,7 @@
                         android:id="@+id/imageCharisma"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
+                        android:layout_marginTop="12dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@drawable/charismimage" />
@@ -1000,7 +1015,8 @@
                         android:id="@+id/charismaName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="3dp"
+                        android:layout_marginStart="11dp"
+                        android:layout_marginTop="8dp"
                         android:fontFamily="@font/helvetica_bold"
                         android:text="@string/charisma"
                         android:textColor="@color/basicPurple"
@@ -1011,10 +1027,12 @@
                     <EditText
                         android:id="@+id/editTextNumberCharisma"
                         android:layout_width="20dp"
-                        android:layout_height="28dp"
+                        android:layout_height="34dp"
                         android:backgroundTint="@color/basicPurple"
                         android:ems="10"
                         android:inputType="number"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
                         app:layout_constraintStart_toEndOf="@+id/charismaName"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
@@ -1045,6 +1063,1190 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/backarrow" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayoutSkills"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintCharacteristics">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintAcrobatics"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintCheckAcrobatics"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/design_text_spher"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/imageCheckAcrobatics"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:alpha="0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ellipse" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <ImageView
+                        android:id="@+id/imageAcrobatics"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="12dp"
+                        app:layout_constraintStart_toEndOf="@+id/constraintCheckAcrobatics"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/dexterityimage" />
+
+                    <TextView
+                        android:id="@+id/acrobaticsName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/helvetica_bold"
+                        android:text="@string/acrobatics"
+                        android:textColor="@color/basicPurple"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/imageAcrobatics"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/editTextNumberAcrobatics"
+                        android:layout_width="20dp"
+                        android:layout_height="34dp"
+                        android:backgroundTint="@color/basicPurple"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/acrobaticsName"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintAnalise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintAcrobatics">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintCheckAnalise"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/design_text_spher"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/imageCheckAnalise"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:alpha="0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ellipse" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <ImageView
+                        android:id="@+id/imageAnalise"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="12dp"
+                        app:layout_constraintStart_toEndOf="@+id/constraintCheckAnalise"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/intelligenceimage" />
+
+                    <TextView
+                        android:id="@+id/analiseName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/helvetica_bold"
+                        android:text="@string/analise"
+                        android:textColor="@color/basicPurple"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/imageAnalise"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/editTextNumberAnalise"
+                        android:layout_width="20dp"
+                        android:layout_height="34dp"
+                        android:backgroundTint="@color/basicPurple"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/analiseName"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintAthletics"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintAnalise">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintCheckAthletics"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/design_text_spher"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/imageCheckAthletics"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:alpha="0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ellipse" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <ImageView
+                        android:id="@+id/imageAthletics"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="12dp"
+                        app:layout_constraintStart_toEndOf="@+id/constraintCheckAthletics"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/strengthimage" />
+
+                    <TextView
+                        android:id="@+id/athleticsName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/helvetica_bold"
+                        android:text="@string/athletics"
+                        android:textColor="@color/basicPurple"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/imageAthletics"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/editTextNumberAthletics"
+                        android:layout_width="20dp"
+                        android:layout_height="34dp"
+                        android:backgroundTint="@color/basicPurple"
+                        android:ems="10"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:inputType="number"
+                        app:layout_constraintStart_toEndOf="@+id/athleticsName"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintPerception"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintAthletics">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintCheckPerception"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/design_text_spher"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/imageCheckPerception"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:alpha="0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ellipse" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <ImageView
+                        android:id="@+id/imagePerception"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="12dp"
+                        app:layout_constraintStart_toEndOf="@+id/constraintCheckPerception"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/wisdomimage" />
+
+                    <TextView
+                        android:id="@+id/perceptionName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/helvetica_bold"
+                        android:text="@string/perception"
+                        android:textColor="@color/basicPurple"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/imagePerception"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/editTextNumberPerception"
+                        android:layout_width="20dp"
+                        android:layout_height="34dp"
+                        android:backgroundTint="@color/basicPurple"
+                        android:ems="10"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:inputType="number"
+                        app:layout_constraintStart_toEndOf="@+id/perceptionName"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintSurvival"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintPerception">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintCheckSurvival"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/design_text_spher"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/imageCheckSurvival"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:alpha="0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ellipse" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <ImageView
+                        android:id="@+id/imageSurvival"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="12dp"
+                        app:layout_constraintStart_toEndOf="@+id/constraintCheckSurvival"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/intelligenceimage" />
+
+                    <TextView
+                        android:id="@+id/survivalName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/helvetica_bold"
+                        android:text="@string/survival"
+                        android:textColor="@color/basicPurple"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/imageSurvival"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/editTextNumberSurvival"
+                        android:layout_width="20dp"
+                        android:layout_height="34dp"
+                        android:backgroundTint="@color/basicPurple"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/survivalName"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintPerformance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintSurvival">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintCheckPerformance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/design_text_spher"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/imageCheckPerformance"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:alpha="0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ellipse" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <ImageView
+                        android:id="@+id/imagePerformance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="12dp"
+                        app:layout_constraintStart_toEndOf="@+id/constraintCheckPerformance"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/charismimage" />
+
+                    <TextView
+                        android:id="@+id/performanceName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/helvetica_bold"
+                        android:text="@string/performance"
+                        android:textColor="@color/basicPurple"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/imagePerformance"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/editTextNumberPerformance"
+                        android:layout_width="20dp"
+                        android:layout_height="34dp"
+                        android:backgroundTint="@color/basicPurple"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/performanceName"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintIntimidation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintPerformance">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintCheckIntimidation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/design_text_spher"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/imageCheckIntimidation"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:alpha="0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ellipse" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <ImageView
+                        android:id="@+id/imageIntimidation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="12dp"
+                        app:layout_constraintStart_toEndOf="@+id/constraintCheckIntimidation"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/charismimage" />
+
+                    <TextView
+                        android:id="@+id/intimidationName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/helvetica_bold"
+                        android:text="@string/intimidation"
+                        android:textColor="@color/basicPurple"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/imageIntimidation"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/editTextNumberIntimidation"
+                        android:layout_width="20dp"
+                        android:layout_height="34dp"
+                        android:backgroundTint="@color/basicPurple"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:ems="10"
+                        android:inputType="number"
+                        app:layout_constraintStart_toEndOf="@+id/intimidationName"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintIntimidation">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintCheckHistory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/design_text_spher"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/imageCheckHistory"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:alpha="0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ellipse" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <ImageView
+                        android:id="@+id/imageHistory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="12dp"
+                        app:layout_constraintStart_toEndOf="@+id/constraintCheckHistory"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/intelligenceimage" />
+
+                    <TextView
+                        android:id="@+id/historyName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/helvetica_bold"
+                        android:text="@string/history"
+                        android:textColor="@color/basicPurple"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/imageHistory"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/editTextNumberHistory"
+                        android:layout_width="20dp"
+                        android:layout_height="34dp"
+                        android:backgroundTint="@color/basicPurple"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/historyName"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintSleight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintHistory">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintCheckSleight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/design_text_spher"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/imageCheckSleight"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:alpha="0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ellipse" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <ImageView
+                        android:id="@+id/imageSleight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="12dp"
+                        app:layout_constraintStart_toEndOf="@+id/constraintCheckSleight"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/dexterityimage" />
+
+                    <TextView
+                        android:id="@+id/sleightName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/helvetica_bold"
+                        android:text="@string/sleight"
+                        android:textColor="@color/basicPurple"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/imageSleight"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/editTextNumberSleight"
+                        android:layout_width="20dp"
+                        android:layout_height="34dp"
+                        android:backgroundTint="@color/basicPurple"
+                        android:ems="10"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:inputType="number"
+                        app:layout_constraintStart_toEndOf="@+id/sleightName"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintMagic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="80dp"
+                    app:layout_constraintStart_toEndOf="@+id/constraintAcrobatics"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintCheckMagic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/design_text_spher"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/imageCheckMagic"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:alpha="0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ellipse" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <ImageView
+                        android:id="@+id/imageMagic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="12dp"
+                        app:layout_constraintStart_toEndOf="@+id/constraintCheckMagic"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/intelligenceimage" />
+
+                    <TextView
+                        android:id="@+id/magicName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/helvetica_bold"
+                        android:text="@string/magic"
+                        android:textColor="@color/basicPurple"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/imageMagic"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/editTextNumberMagic"
+                        android:layout_width="20dp"
+                        android:layout_height="34dp"
+                        android:backgroundTint="@color/basicPurple"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/magicName"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintMedicine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="80dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toEndOf="@+id/constraintAcrobatics"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintMagic">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintCheckMedicine"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/design_text_spher"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/imageCheckMedicine"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:alpha="0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ellipse" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <ImageView
+                        android:id="@+id/imageMedicine"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="12dp"
+                        app:layout_constraintStart_toEndOf="@+id/constraintCheckMedicine"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/wisdomimage" />
+
+                    <TextView
+                        android:id="@+id/medicineName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/helvetica_bold"
+                        android:text="@string/medicine"
+                        android:textColor="@color/basicPurple"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/imageMedicine"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/editTextNumberMedicine"
+                        android:layout_width="20dp"
+                        android:layout_height="34dp"
+                        android:backgroundTint="@color/basicPurple"
+                        android:ems="10"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:inputType="number"
+                        app:layout_constraintStart_toEndOf="@+id/medicineName"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintDeception"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="80dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toEndOf="@+id/constraintAcrobatics"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintMedicine">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintCheckDeception"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/design_text_spher"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/imageCheckDeception"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:alpha="0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ellipse" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <ImageView
+                        android:id="@+id/imageDeception"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="12dp"
+                        app:layout_constraintStart_toEndOf="@+id/constraintCheckDeception"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/charismimage" />
+
+                    <TextView
+                        android:id="@+id/deceptionName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/helvetica_bold"
+                        android:text="@string/deception"
+                        android:textColor="@color/basicPurple"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/imageDeception"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/editTextNumberDeception"
+                        android:layout_width="20dp"
+                        android:layout_height="34dp"
+                        android:backgroundTint="@color/basicPurple"
+                        android:ems="10"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:inputType="number"
+                        app:layout_constraintStart_toEndOf="@+id/deceptionName"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintNature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="80dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toEndOf="@+id/constraintAcrobatics"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintDeception">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintCheckNature"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/design_text_spher"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/imageCheckNature"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:alpha="0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ellipse" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <ImageView
+                        android:id="@+id/imageNature"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="12dp"
+                        app:layout_constraintStart_toEndOf="@+id/constraintCheckNature"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/intelligenceimage" />
+
+                    <TextView
+                        android:id="@+id/natureName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/helvetica_bold"
+                        android:text="@string/nature"
+                        android:textColor="@color/basicPurple"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/imageNature"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/editTextNumberNature"
+                        android:layout_width="20dp"
+                        android:layout_height="34dp"
+                        android:backgroundTint="@color/basicPurple"
+                        android:ems="10"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:inputType="number"
+                        app:layout_constraintStart_toEndOf="@+id/natureName"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintInsight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="80dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toEndOf="@+id/constraintAcrobatics"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintNature">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintCheckInsight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/design_text_spher"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/imageCheckInsight"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:alpha="0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ellipse" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <ImageView
+                        android:id="@+id/imageInsight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="12dp"
+                        app:layout_constraintStart_toEndOf="@+id/constraintCheckInsight"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/wisdomimage" />
+
+                    <TextView
+                        android:id="@+id/insightName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/helvetica_bold"
+                        android:text="@string/insight"
+                        android:textColor="@color/basicPurple"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/imageInsight"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/editTextNumberInsight"
+                        android:layout_width="20dp"
+                        android:layout_height="34dp"
+                        android:backgroundTint="@color/basicPurple"
+                        android:ems="10"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:inputType="number"
+                        app:layout_constraintStart_toEndOf="@+id/insightName"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintReligion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="80dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toEndOf="@+id/constraintAcrobatics"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintInsight">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintCheckReligion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/design_text_spher"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/imageCheckReligion"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:alpha="0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ellipse" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <ImageView
+                        android:id="@+id/imageReligion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="12dp"
+                        app:layout_constraintStart_toEndOf="@+id/constraintCheckReligion"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/intelligenceimage" />
+
+                    <TextView
+                        android:id="@+id/religionName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="@font/helvetica_bold"
+                        android:text="@string/religion"
+                        android:textColor="@color/basicPurple"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/imageReligion"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/editTextNumberReligion"
+                        android:layout_width="20dp"
+                        android:layout_height="34dp"
+                        android:backgroundTint="@color/basicPurple"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/religionName"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintSecrecy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="80dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toEndOf="@+id/constraintAcrobatics"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintReligion">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintCheckSecrecy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/design_text_spher"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/imageCheckSecrecy"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:alpha="0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ellipse" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <ImageView
+                        android:id="@+id/imageSecrecy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="12dp"
+                        app:layout_constraintStart_toEndOf="@+id/constraintCheckSecrecy"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/dexterityimage" />
+
+                    <TextView
+                        android:id="@+id/secrecyName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/helvetica_bold"
+                        android:text="@string/secrecy"
+                        android:textColor="@color/basicPurple"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/imageSecrecy"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/editTextNumberSecrecy"
+                        android:layout_width="20dp"
+                        android:layout_height="34dp"
+                        android:backgroundTint="@color/basicPurple"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/secrecyName"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintConviction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="80dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toEndOf="@+id/constraintAcrobatics"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintSecrecy">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintCheckConviction"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/design_text_spher"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/imageCheckConviction"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:alpha="0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ellipse" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <ImageView
+                        android:id="@+id/imageConviction"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="12dp"
+                        app:layout_constraintStart_toEndOf="@+id/constraintCheckConviction"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/charismimage" />
+
+                    <TextView
+                        android:id="@+id/convictionName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/helvetica_bold"
+                        android:text="@string/conviction"
+                        android:textColor="@color/basicPurple"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/imageConviction"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/editTextNumberConviction"
+                        android:layout_width="20dp"
+                        android:layout_height="34dp"
+                        android:backgroundTint="@color/basicPurple"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/convictionName"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintAnimal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="80dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toEndOf="@+id/constraintAcrobatics"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintConviction">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintCheckAnimal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/design_text_spher"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/imageCheckAnimal"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:alpha="0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ellipse" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <ImageView
+                        android:id="@+id/imageAnimal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="12dp"
+                        app:layout_constraintStart_toEndOf="@+id/constraintCheckAnimal"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/wisdomimage" />
+
+                    <TextView
+                        android:id="@+id/animalName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/helvetica_bold"
+                        android:text="@string/animal"
+                        android:textColor="@color/basicPurple"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/imageAnimal"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/editTextNumberAnimal"
+                        android:layout_width="20dp"
+                        android:layout_height="34dp"
+                        android:backgroundTint="@color/basicPurple"
+                        android:ems="10"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:inputType="number"
+                        app:layout_constraintStart_toEndOf="@+id/animalName"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Button
+                android:id="@+id/saveCharacterButton"
+                android:layout_width="340dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="@color/basicPurple"
+                android:fontFamily="@font/helvetica_bold"
+                android:text="@string/saveButton"
+                android:textColor="@color/background"
+                android:textSize="16dp"
+                app:cornerRadius="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayoutSkills" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

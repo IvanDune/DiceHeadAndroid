@@ -63,4 +63,25 @@
     <string name="charisma">ХАР</string>
     <string name="pasWis">Пассивная мудрость:</string>
 
+    <string name="acrobatics">Акробатика</string>
+    <string name="analise">Анализ</string>
+    <string name="athletics">Атлетика</string>
+    <string name="perception">Восприятие</string>
+    <string name="survival">Выживание</string>
+    <string name="performance">Выступление</string>
+    <string name="intimidation">Запугивание</string>
+    <string name="history">История</string>
+    <string name="sleight">Ловкость рук</string>
+    <string name="magic">Магия</string>
+    <string name="medicine">Медицина</string>
+    <string name="deception">Обман</string>
+    <string name="nature">Природа</string>
+    <string name="insight">Интуиция</string>
+    <string name="religion">Религия</string>
+    <string name="secrecy">Скрытность</string>
+    <string name="conviction">Убеждение</string>
+    <string name="animal">Животные</string>
+
+    <string name="saveButton">Сохранить изменения</string>
+
 </resources>
