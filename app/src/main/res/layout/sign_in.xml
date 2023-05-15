@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayoutSignIn"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background">
@@ -94,7 +95,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonSignIn"
         android:layout_width="353dp"
         android:layout_height="48dp"
         android:layout_marginStart="20dp"
@@ -166,15 +167,16 @@
 
 
         <EditText
-            android:id="@+id/login"
+            android:id="@+id/email"
             android:layout_width="328dp"
             android:layout_height="52dp"
             android:alpha="0.5"
             android:ems="10"
             android:fontFamily="@font/helvetica_regular"
+            android:hint="@string/email"
             android:inputType="textPersonName"
-            android:text="@string/login"
             android:textColor="@color/white"
+            android:textColorHint="@color/basicPurple"
             app:layout_constraintStart_toEndOf="@+id/imageEnterLogIn"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -206,9 +208,10 @@
             android:alpha="0.5"
             android:ems="10"
             android:fontFamily="@font/helvetica_regular"
+            android:hint="@string/password"
             android:inputType="textPersonName"
-            android:text="@string/password"
             android:textColor="@color/white"
+            android:textColorHint="@color/basicPurple"
             app:layout_constraintStart_toEndOf="@+id/imageEnterPassword"
             app:layout_constraintTop_toTopOf="parent" />
 

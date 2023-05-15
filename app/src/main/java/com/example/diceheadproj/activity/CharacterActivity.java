@@ -3,17 +3,16 @@ package com.example.diceheadproj.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.RenderEffect;
 import android.graphics.Shader;
 import android.graphics.Typeface;
-import android.media.session.PlaybackState;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -22,41 +21,60 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.diceheadproj.R;
 import com.example.diceheadproj.domain.Backstory;
 import com.example.diceheadproj.domain.Classes;
 import com.example.diceheadproj.domain.Outlook;
 import com.example.diceheadproj.domain.Races;
-import com.example.diceheadproj.domain.dnd.characters.Character;
+import com.example.diceheadproj.domain.dnd.characters.Character_DND;
+import com.example.diceheadproj.domain.dnd.characters.CharacterSkill;
 import com.example.diceheadproj.domain.dnd.characters.Characteristics;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.core.utilities.PushIdGenerator;
+import com.google.firebase.database.snapshot.ChildKey;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class CharacterActivity extends AppCompatActivity implements View.OnClickListener {
 
-    ImageView imageLife1, imageLife2, imageLife3, imageDeath1, imageDeath2, imageDeath3 ;
+    private ImageView imageLife1, imageLife2, imageLife3, imageDeath1, imageDeath2, imageDeath3 ;
 
-    ImageView imageAcrobatics, imageAnalise, imageAthletics, imagePerception, imageSurvival, imagePerformance, imageIntimidation;
-    ImageView imageHistory, imageSleight, imageMagic, imageMedicine, imageDeception, imageNature, imageInsight, imageReligion;
-    ImageView imageSecrecy, imageConviction, imageAnimal;
+    private ImageView imageHistory, imageSleight, imageMagic, imageMedicine, imageDeception, imageNature, imageInsight, imageReligion;
+    private ImageView imageSecrecy, imageConviction, imageAnimal;
+    private ImageView imageAcrobatics, imageAnalise, imageAthletics, imagePerception, imageSurvival, imagePerformance, imageIntimidation;
 
-    Spinner spinnerRace;
-    Spinner spinnerOutlook;
-    Spinner spinnerBack;
-    Spinner spinnerClasses;
+    private Spinner spinnerRace;
+    private Spinner spinnerOutlook;
+    private Spinner spinnerBack;
+    private Spinner spinnerClasses;
 
-    Characteristics characteristics;
+    private Characteristics characteristics;
+
+    private String CHARACTER_KEY = "Characters";
+    private String CHARACTERISTICS_KEY = "Characteristic";
+    private String SKILL_KEY = "Skills";
+    private String USER_KEY = "Users";
+
+    ConstraintLayout root;
+    FirebaseAuth auth;
+    FirebaseDatabase db;
+    DatabaseReference users_dr;
+    DatabaseReference characters_dr;
+    DatabaseReference characteristics_dr;
+    DatabaseReference skill_dr;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character);
-
 
         ConstraintLayout constraintLayoutStars = (ConstraintLayout) findViewById(R.id.constraintLayoutCharacterStars);
         int childCount = constraintLayoutStars.getChildCount();
@@ -67,159 +85,33 @@ public class CharacterActivity extends AppCompatActivity implements View.OnClick
             }
         }
 
-        LinearLayout linearLayoutTraits = (LinearLayout) findViewById(R.id.linearLayoutTraits);
-        linearLayoutTraits.setOnClickListener(this);
-
-        ConstraintLayout constraintLayoutRace = (ConstraintLayout) findViewById(R.id.constraintLayoutRace);
-        constraintLayoutRace.setOnClickListener(this);
-
-        ConstraintLayout constraintLayoutClass = (ConstraintLayout) findViewById(R.id.constraintLayoutClass);
-        constraintLayoutClass.setOnClickListener(this);
-
-        ConstraintLayout constraintLayoutOutlook = (ConstraintLayout) findViewById(R.id.constraintLayoutOutlook);
-        constraintLayoutOutlook.setOnClickListener(this);
-
-        ConstraintLayout constraintLayoutBack = (ConstraintLayout) findViewById(R.id.constraintLayoutBack);
-        constraintLayoutBack.setOnClickListener(this);
-
-        imageLife1 = (ImageView) findViewById(R.id.imageLife1);
-        imageLife1.setOnClickListener(this);
-
-        imageLife2 = (ImageView) findViewById(R.id.imageLife2);
-        imageLife2.setOnClickListener(this);
-
-        imageLife3 = (ImageView) findViewById(R.id.imageLife3);
-        imageLife3.setOnClickListener(this);
-
-        imageDeath1 = (ImageView) findViewById(R.id.imageDeath1);
-        imageDeath1.setOnClickListener(this);
-
-        imageDeath2 = (ImageView) findViewById(R.id.imageDeath2);
-        imageDeath2.setOnClickListener(this);
-
-        imageDeath3 = (ImageView) findViewById(R.id.imageDeath3);
-        imageDeath3.setOnClickListener(this);
+        init();
 
 
-
-        imageAcrobatics = (ImageView) findViewById(R.id.imageCheckAcrobatics);
-        imageAcrobatics.setOnClickListener(this);
-
-        imageAnalise = (ImageView) findViewById(R.id.imageCheckAnalise);
-        imageAnalise.setOnClickListener(this);
-
-        imageAthletics = (ImageView) findViewById(R.id.imageCheckAthletics);
-        imageAthletics.setOnClickListener(this);
-
-        imagePerception = (ImageView) findViewById(R.id.imageCheckPerception);
-        imagePerception.setOnClickListener(this);
-
-        imageSurvival = (ImageView) findViewById(R.id.imageCheckSurvival);
-        imageSurvival.setOnClickListener(this);
-
-        imagePerformance = (ImageView) findViewById(R.id.imageCheckPerformance);
-        imagePerformance.setOnClickListener(this);
-
-        imageIntimidation = (ImageView) findViewById(R.id.imageCheckIntimidation);
-        imageIntimidation.setOnClickListener(this);
-
-        imageHistory = (ImageView) findViewById(R.id.imageCheckHistory);
-        imageHistory.setOnClickListener(this);
-
-        imageSleight = (ImageView) findViewById(R.id.imageCheckSleight);
-        imageSleight.setOnClickListener(this);
-
-        imageMagic = (ImageView) findViewById(R.id.imageCheckMagic);
-        imageMagic.setOnClickListener(this);
-
-        imageMedicine = (ImageView) findViewById(R.id.imageCheckMedicine);
-        imageMedicine.setOnClickListener(this);
-
-        imageDeception = (ImageView) findViewById(R.id.imageCheckDeception);
-        imageDeception.setOnClickListener(this);
-
-        imageNature = (ImageView) findViewById(R.id.imageCheckNature);
-        imageNature.setOnClickListener(this);
-
-        imageInsight = (ImageView) findViewById(R.id.imageCheckInsight);
-        imageInsight.setOnClickListener(this);
-
-        imageReligion = (ImageView) findViewById(R.id.imageCheckReligion);
-        imageReligion.setOnClickListener(this);
-
-        imageSecrecy = (ImageView) findViewById(R.id.imageCheckSecrecy);
-        imageSecrecy.setOnClickListener(this);
-
-        imageConviction = (ImageView) findViewById(R.id.imageCheckConviction);
-        imageConviction.setOnClickListener(this);
-
-        imageAnimal = (ImageView) findViewById(R.id.imageCheckAnimal);
-        imageAnimal.setOnClickListener(this);
-
-
-        ImageView backArrow = (ImageView) findViewById(R.id.imageBackArrow);
-        backArrow.setOnClickListener(this);
-
-        List<String> rcs = new ArrayList<>();
-        Races[] rcEnum = Races.values();
-        rcs.add("Раса");
-        for(Races r : rcEnum){
-            rcs.add(r.name());
-        }
-
-        List<String> back = new ArrayList<>();
-        Backstory[] bckEnum = Backstory.values();
-        back.add("Предыстория");
-        for(Backstory b : bckEnum){
-            back.add(b.name());
-        }
-
-        List<String> outlook = new ArrayList<>();
-        Outlook[] outlookEnum = Outlook.values();
-        outlook.add("Мировоззрение");
-        for(Outlook o : outlookEnum){
-            outlook.add(o.name());
-        }
-
-        List<String> classes = new ArrayList<>();
-        Classes[] classesEnum = Classes.values();
-        classes.add("Класс");
-        for(Classes c : classesEnum){
-            classes.add(c.name());
-        }
-
-        ArrayAdapter<String> adapterRace = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, rcs);
-        adapterRace.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        ArrayAdapter<String> adapterOutlook = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, outlook);
-        adapterOutlook.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        ArrayAdapter<String> adapterBack = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, back);
-        adapterBack.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        ArrayAdapter<String> adapterClasses = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, classes);
-        adapterClasses.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        spinnerRace = findViewById(R.id.spinnerRace);
-        spinnerOutlook = findViewById(R.id.spinnerOutlook);
-        spinnerBack = findViewById(R.id.spinnerBack);
-        spinnerClasses = findViewById(R.id.spinnerClasses);
-
-        spinnerRace.setAdapter(adapterRace);
-        spinnerOutlook.setAdapter(adapterOutlook);
-        spinnerBack.setAdapter(adapterBack);
-        spinnerClasses.setAdapter(adapterClasses);
-
-        spinnerRace.setOnItemSelectedListener(new CustomAdapter());
-        spinnerOutlook.setOnItemSelectedListener(new CustomAdapter());
-        spinnerBack.setOnItemSelectedListener(new CustomAdapter());
-        spinnerClasses.setOnItemSelectedListener(new CustomAdapter());
+        db = FirebaseDatabase.getInstance();
+        characters_dr = db.getReference(CHARACTER_KEY);
+        characteristics_dr = db.getReference(CHARACTERISTICS_KEY);
+        skill_dr = db.getReference(SKILL_KEY);
+        root = (ConstraintLayout) findViewById(R.id.constraintLayoutCharacter);
+        auth = FirebaseAuth.getInstance();
+        users_dr = db.getReference(USER_KEY); // Где хранятся пользователи
 
         Button saveCharacterButton = (Button) findViewById(R.id.saveCharacterButton);
-        saveCharacterButton.setOnClickListener(this);
+
+        try{
+            String st = auth.getCurrentUser().getUid();
+            saveCharacterButton.setOnClickListener(this);
+            saveCharacterButton.setText("Сохранить изменения");
+
+        } catch (Exception e){
+            saveCharacterButton.setText("Авторизируйтесь");
+
+        }
+
 
     }
 
+    @SuppressLint("RestrictedApi")
     @Override
     public void onClick(View view) {
         switch (view.getId()){
@@ -393,6 +285,16 @@ public class CharacterActivity extends AppCompatActivity implements View.OnClick
                     imageAnimal.ALPHA.set(imageAnimal,0F);
                 break;
             case R.id.saveCharacterButton:
+                String st = auth.getCurrentUser().getUid();
+                String email = auth.getCurrentUser().getEmail();
+//                if (spinnerOutlook.getSelectedItem().toString()=="Мировоззрение"||spinnerBack.getSelectedItem().toString()=="Предыстория"||
+//                        spinnerRace.getSelectedItem().toString()=="Раса"||spinnerClasses.getSelectedItem().toString()=="Класс"){
+//                    Toast toast = Toast.makeText(getApplicationContext(),"Вы не сделали правильный выбор", Toast.LENGTH_SHORT);
+//                    toast.show();
+//                    break;
+//                }
+
+                // Сбор информации
                 TextView textCharacterName = findViewById(R.id.textCharacterName);
                 EditText editTextNumberStrength = findViewById(R.id.editTextNumberStrength);
                 EditText editTextNumberDexterity = findViewById(R.id.editTextNumberDexterity);
@@ -401,6 +303,7 @@ public class CharacterActivity extends AppCompatActivity implements View.OnClick
                 EditText editTextNumberIntelligence = findViewById(R.id.editTextNumberIntelligence);
                 EditText editTextNumberCharisma = findViewById(R.id.editTextNumberCharisma);
 
+                // Значение характеристик
                 String str = editTextNumberStrength.getText().toString();
                 String dex = editTextNumberDexterity.getText().toString();
                 String con = editTextNumberConstitution.getText().toString();
@@ -408,6 +311,7 @@ public class CharacterActivity extends AppCompatActivity implements View.OnClick
                 String intl = editTextNumberIntelligence.getText().toString();
                 String cha = editTextNumberCharisma.getText().toString();
 
+                // Создание их значение
                 int strengthValue;
                 int dexterityValue;
                 int constitutionValue;
@@ -415,39 +319,95 @@ public class CharacterActivity extends AppCompatActivity implements View.OnClick
                 int intelligenceValue;
                 int charismaValue;
 
-                if (str.equals("")||dex.equals("")||con.equals("")||wis.equals("")||intl.equals("")||cha.equals("")){
-                    Toast toast = Toast.makeText(getApplicationContext(),"Одна из характеристик не заполнена", Toast.LENGTH_SHORT);
-                    toast.show();
-                    break;
-                } else{
-                    strengthValue = Integer.parseInt(str);
-                    dexterityValue = Integer.parseInt(dex);
-                    constitutionValue = Integer.parseInt(con);
-                    wisdomValue = Integer.parseInt(wis);
-                    intelligenceValue = Integer.parseInt(intl);
-                    charismaValue = Integer.parseInt(cha);
-                }
+//                if (str.equals("")||dex.equals("")||con.equals("")||wis.equals("")||intl.equals("")||cha.equals("")){
+//                    Toast toast = Toast.makeText(getApplicationContext(),"Одна из характеристик не заполнена", Toast.LENGTH_SHORT);
+//                    toast.show();
+//                    break;
+//                } else{
+//                    strengthValue = Integer.parseInt(str);
+//                    dexterityValue = Integer.parseInt(dex);
+//                    constitutionValue = Integer.parseInt(con);
+//                    wisdomValue = Integer.parseInt(wis);
+//                    intelligenceValue = Integer.parseInt(intl);
+//                    charismaValue = Integer.parseInt(cha);
+//                }
+
+                // Характеристики персонажа
+//                characteristics = new Characteristics(
+//                        strengthValue, Characteristics.characteristicMod(strengthValue),
+//                        dexterityValue, Characteristics.characteristicMod(dexterityValue),
+//                        constitutionValue, Characteristics.characteristicMod(constitutionValue),
+//                        wisdomValue, Characteristics.characteristicMod(wisdomValue),
+//                        intelligenceValue, Characteristics.characteristicMod(intelligenceValue),
+//                        charismaValue, Characteristics.characteristicMod(charismaValue));
 
 
-                characteristics = new Characteristics(
-                        strengthValue, Characteristics.characteristicMod(strengthValue),
-                        dexterityValue, Characteristics.characteristicMod(dexterityValue),
-                        constitutionValue, Characteristics.characteristicMod(constitutionValue),
-                        wisdomValue, Characteristics.characteristicMod(wisdomValue),
-                        intelligenceValue, Characteristics.characteristicMod(intelligenceValue),
-                        charismaValue, Characteristics.characteristicMod(charismaValue));
+                EditText editTextNumberAcrobatics = (EditText) findViewById(R.id.editTextNumberAcrobatics);
+                EditText editTextNumberAnimal = (EditText) findViewById(R.id.editTextNumberAnimal);
+                EditText editTextNumberAnalise = (EditText) findViewById(R.id.editTextNumberAnalise);
+                EditText editTextNumberAthletics = (EditText) findViewById(R.id.editTextNumberAthletics);
+                EditText editTextNumberDeception = (EditText) findViewById(R.id.editTextNumberDeception);
+                EditText editTextNumberHistory = (EditText) findViewById(R.id.editTextNumberHistory);
+                EditText editTextNumberInsight = (EditText) findViewById(R.id.editTextNumberInsight);
+                EditText editTextNumberIntimidation = (EditText) findViewById(R.id.editTextNumberIntimidation);
+                EditText editTextNumberMagic = (EditText) findViewById(R.id.editTextNumberMagic);
+                EditText editTextNumberMedicine = (EditText) findViewById(R.id.editTextNumberMedicine);
+                EditText editTextNumberNature = (EditText) findViewById(R.id.editTextNumberNature);
+                EditText editTextNumberPerception = (EditText) findViewById(R.id.editTextNumberPerception);
+                EditText editTextNumberPerformance = (EditText) findViewById(R.id.editTextNumberPerformance);
+                EditText editTextNumberConviction = (EditText) findViewById(R.id.editTextNumberConviction);
+                EditText editTextNumberReligion = (EditText) findViewById(R.id.editTextNumberReligion);
+                EditText editTextNumberSlight = (EditText) findViewById(R.id.editTextNumberSleight);
+                EditText editTextNumberSecrecy = (EditText) findViewById(R.id.editTextNumberSecrecy);
+                EditText editTextNumberSurvival = (EditText) findViewById(R.id.editTextNumberSurvival);
 
-                if (spinnerOutlook.getSelectedItem().toString()=="Мировоззрение"||spinnerBack.getSelectedItem().toString()=="Предыстория"||
-                        spinnerRace.getSelectedItem().toString()=="Раса"||spinnerClasses.getSelectedItem().toString()=="Класс"){
-                    Toast toast = Toast.makeText(getApplicationContext(),"Вы не сделали правильный выбор", Toast.LENGTH_SHORT);
-                    toast.show();
-                    break;
-                }
-                Character newCharacter = new Character(textCharacterName.toString(),spinnerOutlook.getSelectedItem().toString(),
-                        spinnerRace.getSelectedItem().toString(),spinnerClasses.getSelectedItem().toString(),
-                        spinnerBack.getSelectedItem().toString(),(long) characteristics.getId(), (long) 0);
 
-                newCharacter.save();
+                CharacterSkill characterSkill = new CharacterSkill();
+//                try{
+//                    characterSkill.setACROBATICS(Integer.parseInt(editTextNumberAcrobatics.getText().toString()));
+//                    characterSkill.setANIMAL_HANDLING(Integer.parseInt(editTextNumberAnimal.getText().toString()));
+//                    characterSkill.setMAGIC(Integer.parseInt(editTextNumberMagic.getText().toString()));
+//                    characterSkill.setATHLETICS(Integer.parseInt(editTextNumberAthletics.getText().toString()));
+//                    characterSkill.setDECEPTION(Integer.parseInt(editTextNumberDeception.getText().toString()));
+//                    characterSkill.setHISTORY(Integer.parseInt(editTextNumberHistory.getText().toString()));
+//                    characterSkill.setINSIGHT(Integer.parseInt(editTextNumberInsight.getText().toString()));
+//                    characterSkill.setINTIMIDATION(Integer.parseInt(editTextNumberIntimidation.getText().toString()));
+//                    characterSkill.setANALISE(Integer.parseInt(editTextNumberAnalise.getText().toString()));
+//                    characterSkill.setMEDICINE(Integer.parseInt(editTextNumberMedicine.getText().toString()));
+//                    characterSkill.setNATURE(Integer.parseInt(editTextNumberNature.getText().toString()));
+//                    characterSkill.setPERCEPTION(Integer.parseInt(editTextNumberPerception.getText().toString()));
+//                    characterSkill.setPERFORMANCE(Integer.parseInt(editTextNumberPerformance.getText().toString()));
+//                    characterSkill.setCONVICTION(Integer.parseInt(editTextNumberConviction.getText().toString()));
+//                    characterSkill.setRELIGION(Integer.parseInt(editTextNumberReligion.getText().toString()));
+//                    characterSkill.setSLEIGHT_OF_HAND(Integer.parseInt(editTextNumberSlight.getText().toString()));
+//                    characterSkill.setSECRECY(Integer.parseInt(editTextNumberSecrecy.getText().toString()));
+//                    characterSkill.setSURVIVAL(Integer.parseInt(editTextNumberSurvival.getText().toString()));
+//                } catch (NumberFormatException e){
+//                    Snackbar.make(root, "Одно из полей навыков не заполнено" + e.getMessage(),Snackbar.LENGTH_LONG).show();
+//                    break;
+//                }
+
+//                Character_DND newCharacter = new Character_DND(textCharacterName.toString(),spinnerOutlook.getSelectedItem().toString(),
+//                        spinnerRace.getSelectedItem().toString(),spinnerClasses.getSelectedItem().toString(),
+//                        spinnerBack.getSelectedItem().toString(),characteristics, "0"); // auth.getCurrentUser().getEmail()
+//                newCharacter.setCharacterSkill(characterSkill);
+
+
+                Intent noLoginFirstSave = new Intent(this,NoLoginFirstActivity.class);
+                Characteristics ch = new Characteristics(0,0,0,0,0,0,0,0,0,0,0,0);
+                CharacterSkill ch_sk = new CharacterSkill(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+                Character_DND nc = new Character_DND("n","o","r","c","b",ch,"0");
+
+                nc.setUserUID(auth.getCurrentUser().getUid());
+                nc.setCharacteristics(ch);
+                nc.setCharacterSkill(ch_sk);
+                characters_dr.push().setValue(nc);
+                startActivity(noLoginFirstSave);
+
+
+
+                break;
+
 
 
 
@@ -472,6 +432,159 @@ public class CharacterActivity extends AppCompatActivity implements View.OnClick
             }
             ((TextView) parent.getChildAt(0)).setTypeface(face);
         }
+    }
+
+    private void init(){
+
+
+        ImageView backArrow = (ImageView) findViewById(R.id.imageBackArrow);
+        backArrow.setOnClickListener(this);
+
+        LinearLayout linearLayoutTraits = (LinearLayout) findViewById(R.id.linearLayoutTraits);
+        linearLayoutTraits.setOnClickListener(this);
+
+        ConstraintLayout constraintLayoutRace = (ConstraintLayout) findViewById(R.id.constraintLayoutRace);
+        constraintLayoutRace.setOnClickListener(this);
+
+        ConstraintLayout constraintLayoutClass = (ConstraintLayout) findViewById(R.id.constraintLayoutClass);
+        constraintLayoutClass.setOnClickListener(this);
+
+        ConstraintLayout constraintLayoutOutlook = (ConstraintLayout) findViewById(R.id.constraintLayoutOutlook);
+        constraintLayoutOutlook.setOnClickListener(this);
+
+        ConstraintLayout constraintLayoutBack = (ConstraintLayout) findViewById(R.id.constraintLayoutBack);
+        constraintLayoutBack.setOnClickListener(this);
+
+        spinnerRace = findViewById(R.id.spinnerRace);
+        spinnerOutlook = findViewById(R.id.spinnerOutlook);
+        spinnerBack = findViewById(R.id.spinnerBack);
+        spinnerClasses = findViewById(R.id.spinnerClasses);
+
+        spinnerRace.setOnItemSelectedListener(new CustomAdapter());
+        spinnerOutlook.setOnItemSelectedListener(new CustomAdapter());
+        spinnerBack.setOnItemSelectedListener(new CustomAdapter());
+        spinnerClasses.setOnItemSelectedListener(new CustomAdapter());
+
+
+
+
+        imageLife1 = (ImageView) findViewById(R.id.imageLife1);
+        imageLife1.setOnClickListener(this);
+
+        imageLife2 = (ImageView) findViewById(R.id.imageLife2);
+        imageLife2.setOnClickListener(this);
+
+        imageLife3 = (ImageView) findViewById(R.id.imageLife3);
+        imageLife3.setOnClickListener(this);
+
+        imageDeath1 = (ImageView) findViewById(R.id.imageDeath1);
+        imageDeath1.setOnClickListener(this);
+
+        imageDeath2 = (ImageView) findViewById(R.id.imageDeath2);
+        imageDeath2.setOnClickListener(this);
+
+        imageDeath3 = (ImageView) findViewById(R.id.imageDeath3);
+        imageDeath3.setOnClickListener(this);
+
+        imageAcrobatics = (ImageView) findViewById(R.id.imageCheckAcrobatics);
+        imageAcrobatics.setOnClickListener(this);
+
+        imageAnalise = (ImageView) findViewById(R.id.imageCheckAnalise);
+        imageAnalise.setOnClickListener(this);
+
+        imageAthletics = (ImageView) findViewById(R.id.imageCheckAthletics);
+        imageAthletics.setOnClickListener(this);
+
+        imagePerception = (ImageView) findViewById(R.id.imageCheckPerception);
+        imagePerception.setOnClickListener(this);
+
+        imageSurvival = (ImageView) findViewById(R.id.imageCheckSurvival);
+        imageSurvival.setOnClickListener(this);
+
+        imagePerformance = (ImageView) findViewById(R.id.imageCheckPerformance);
+        imagePerformance.setOnClickListener(this);
+
+        imageIntimidation = (ImageView) findViewById(R.id.imageCheckIntimidation);
+        imageIntimidation.setOnClickListener(this);
+
+        imageHistory = (ImageView) findViewById(R.id.imageCheckHistory);
+        imageHistory.setOnClickListener(this);
+
+        imageSleight = (ImageView) findViewById(R.id.imageCheckSleight);
+        imageSleight.setOnClickListener(this);
+
+        imageMagic = (ImageView) findViewById(R.id.imageCheckMagic);
+        imageMagic.setOnClickListener(this);
+
+        imageMedicine = (ImageView) findViewById(R.id.imageCheckMedicine);
+        imageMedicine.setOnClickListener(this);
+
+        imageDeception = (ImageView) findViewById(R.id.imageCheckDeception);
+        imageDeception.setOnClickListener(this);
+
+        imageNature = (ImageView) findViewById(R.id.imageCheckNature);
+        imageNature.setOnClickListener(this);
+
+        imageInsight = (ImageView) findViewById(R.id.imageCheckInsight);
+        imageInsight.setOnClickListener(this);
+
+        imageReligion = (ImageView) findViewById(R.id.imageCheckReligion);
+        imageReligion.setOnClickListener(this);
+
+        imageSecrecy = (ImageView) findViewById(R.id.imageCheckSecrecy);
+        imageSecrecy.setOnClickListener(this);
+
+        imageConviction = (ImageView) findViewById(R.id.imageCheckConviction);
+        imageConviction.setOnClickListener(this);
+
+        imageAnimal = (ImageView) findViewById(R.id.imageCheckAnimal);
+        imageAnimal.setOnClickListener(this);
+
+        List<String> rcs = new ArrayList<>();
+        Races[] rcEnum = Races.values();
+        rcs.add("Раса");
+        for(Races r : rcEnum){
+            rcs.add(r.name());
+        }
+
+        List<String> back = new ArrayList<>();
+        Backstory[] bckEnum = Backstory.values();
+        back.add("Предыстория");
+        for(Backstory b : bckEnum){
+            back.add(b.name());
+        }
+
+        List<String> outlook = new ArrayList<>();
+        Outlook[] outlookEnum = Outlook.values();
+        outlook.add("Мировоззрение");
+        for(Outlook o : outlookEnum){
+            outlook.add(o.name());
+        }
+
+        List<String> classes = new ArrayList<>();
+        Classes[] classesEnum = Classes.values();
+        classes.add("Класс");
+        for(Classes c : classesEnum){
+            classes.add(c.name());
+        }
+
+        ArrayAdapter<String> adapterRace = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, rcs);
+        adapterRace.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        ArrayAdapter<String> adapterOutlook = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, outlook);
+        adapterOutlook.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        ArrayAdapter<String> adapterBack = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, back);
+        adapterBack.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        ArrayAdapter<String> adapterClasses = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, classes);
+        adapterClasses.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinnerRace.setAdapter(adapterRace);
+        spinnerOutlook.setAdapter(adapterOutlook);
+        spinnerBack.setAdapter(adapterBack);
+        spinnerClasses.setAdapter(adapterClasses);
+
     }
 
 

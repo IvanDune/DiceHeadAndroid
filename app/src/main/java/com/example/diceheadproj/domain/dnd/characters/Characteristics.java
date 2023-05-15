@@ -1,11 +1,14 @@
 package com.example.diceheadproj.domain.dnd.characters;
 
 
-public class Characteristics {
+import java.io.Serializable;
+import java.util.UUID;
 
-    private Long id;
+public class Characteristics implements Serializable {
 
-    private Long essenceId;
+    private long id;
+
+    private long essenceId;
 
     private int strength;
 

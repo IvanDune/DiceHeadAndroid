@@ -6,12 +6,12 @@
     <string name="create">Создать аккаунт</string>
     <string name="regist">Уже зарегистрированы?</string>
     <string name="signIn">Войдите в аккаунт</string>
-    <string name="logInButton">Войте в аккаунт</string>
+    <string name="logInButton">Войдите в аккаунт</string>
     <string name="registNo">Продолжить без регистрации</string>
     <string name="logInText">Мы скучали по вам</string>
     <string name="registration">Еще не зарегистрированы?</string>
     <string name="goRegist">Создайте аккаунт.</string>
-    <string name="login">Логин</string>
+    <string name="email">Почта</string>
     <string name="password">Пароль</string>
     <string name="logIn">Рады видеть вас с нами</string>
     <string name="logIn_name">Логин</string>
@@ -40,10 +40,7 @@
     <string name="experience">Опыт</string>
     <string name="characterName">Имя персонажа</string>
     <string name="characterDescription">Описание персонажа</string>
-    <string name="characterRace">Раса</string>
     <string name="characterClass">Класс</string>
-    <string name="characterOutlook">Мировоззрение</string>
-    <string name="characterBack">Предыстория</string>
     <string name="textHP">ХП</string>
     <string name="textAC">КД</string>
     <string name="textHitDice">Кость Хитов</string>
@@ -83,5 +80,6 @@
     <string name="animal">Животные</string>
 
     <string name="saveButton">Сохранить изменения</string>
+    <string name="saveButtonNo">Авторизируйтесь</string>
 
 </resources>

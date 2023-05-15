@@ -3,7 +3,9 @@ package com.example.diceheadproj.domain.dnd.characters;
 
 import com.orm.SugarRecord;
 
-public abstract class Essence extends SugarRecord<Essence> {
+import java.io.Serializable;
+
+public abstract class Essence implements Serializable {
     protected String name;
 
     protected int HP;

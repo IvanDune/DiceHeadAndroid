@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "1013948744578",
-    "project_id": "dicehead-862ee",
-    "storage_bucket": "dicehead-862ee.appspot.com"
+    "project_number": "670202345963",
+    "project_id": "diceheadandroid",
+    "storage_bucket": "diceheadandroid.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1013948744578:android:aac35c6b15f87f761f859b",
+        "mobilesdk_app_id": "1:670202345963:android:fc3dffc2c2d711b389c1ae",
         "android_client_info": {
           "package_name": "com.example.diceheadproj"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1013948744578-26g6iulkq4eg3dmj4pvnlmv04hu5mmqd.apps.googleusercontent.com",
+          "client_id": "670202345963-v20bo3d21cvvaq5ijgbso9ebl3efhp2t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.diceheadproj",
+            "certificate_hash": "ea1c02827cd89011445661f8e70bdc0b3ac9c0e4"
+          }
+        },
+        {
+          "client_id": "670202345963-s6j7vqdac0jis17a78lt7jpmlk61vmsg.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAIWncreCWoqgbswyteylsetoYOI8YE7gI"
+          "current_key": "AIzaSyDXXr3XnrThL4cDcvtPQmk9xN_5aMuN-wY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1013948744578-26g6iulkq4eg3dmj4pvnlmv04hu5mmqd.apps.googleusercontent.com",
+              "client_id": "670202345963-s6j7vqdac0jis17a78lt7jpmlk61vmsg.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

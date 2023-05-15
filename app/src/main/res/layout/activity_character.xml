@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayoutCharacter"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
@@ -18,7 +19,6 @@
             android:id="@+id/constraintMain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -353,10 +353,12 @@
                         android:id="@+id/spinnerClasses"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textAlignment="center"
+                        android:contentDescription="Класс"
                         android:spinnerMode="dialog"
+                        android:textAlignment="center"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="TouchTargetSizeCheck" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -372,24 +374,26 @@
                         android:id="@+id/spinnerRace"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textAlignment="center"
+                        android:contentDescription="Раса"
                         android:spinnerMode="dialog"
+                        android:textAlignment="center"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-<!--                    <TextView-->
-<!--                        android:id="@+id/textCharacterRace"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginTop="4dp"-->
-<!--                        android:layout_marginBottom="4dp"-->
-<!--                        android:fontFamily="@font/helvetica_bold"-->
-<!--                        android:text="@string/characterRace"-->
-<!--                        android:textColor="@color/white"-->
-<!--                        android:textSize="12sp"-->
-<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                        app:layout_constraintEnd_toEndOf="parent"-->
-<!--                        app:layout_constraintStart_toStartOf="parent"-->
-<!--                        app:layout_constraintTop_toTopOf="parent" />-->
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="TouchTargetSizeCheck" />
+                    <!--                    <TextView-->
+                    <!--                        android:id="@+id/textCharacterRace"-->
+                    <!--                        android:layout_width="wrap_content"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:layout_marginTop="4dp"-->
+                    <!--                        android:layout_marginBottom="4dp"-->
+                    <!--                        android:fontFamily="@font/helvetica_bold"-->
+                    <!--                        android:text="@string/characterRace"-->
+                    <!--                        android:textColor="@color/white"-->
+                    <!--                        android:textSize="12sp"-->
+                    <!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+                    <!--                        app:layout_constraintEnd_toEndOf="parent"-->
+                    <!--                        app:layout_constraintStart_toStartOf="parent"-->
+                    <!--                        app:layout_constraintTop_toTopOf="parent" />-->
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -406,10 +410,12 @@
                         android:id="@+id/spinnerOutlook"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textAlignment="center"
+                        android:contentDescription="Мировоззрение"
                         android:spinnerMode="dialog"
+                        android:textAlignment="center"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="TouchTargetSizeCheck" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -427,10 +433,12 @@
                         android:id="@+id/spinnerBack"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textAlignment="center"
+                        android:contentDescription="Предыстория"
                         android:spinnerMode="dialog"
+                        android:textAlignment="center"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="TouchTargetSizeCheck" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -441,6 +449,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
+                android:contentDescription="Расы"
                 android:fontFamily="@font/helvetica_bold"
                 android:text="@string/character"
                 android:textColor="@color/basicPurple"
@@ -620,14 +629,15 @@
                     android:layout_width="20dp"
                     android:layout_height="34dp"
                     android:layout_marginStart="4dp"
+                    android:backgroundTint="@color/background"
                     android:fontFamily="@font/helvetica_bold"
+                    android:gravity="center"
                     android:text="3"
                     android:textColor="@color/white"
-                    android:backgroundTint="@color/background"
                     android:textSize="12sp"
-                    android:gravity="center"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/textHitDiceResult" />
+                    app:layout_constraintStart_toEndOf="@+id/textHitDiceResult"
+                    tools:ignore="TouchTargetSizeCheck" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintLifeDeath"
@@ -770,9 +780,9 @@
                     android:layout_height="34dp"
                     android:backgroundTint="@color/basicPurple"
                     android:ems="10"
+                    android:inputType="number"
                     android:textColor="@color/white"
                     android:textSize="12sp"
-                    android:inputType="number"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/textView5"
                     tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
@@ -898,9 +908,9 @@
                         android:layout_height="34dp"
                         android:backgroundTint="@color/basicPurple"
                         android:ems="10"
+                        android:inputType="number"
                         android:textColor="@color/white"
                         android:textSize="12sp"
-                        android:inputType="number"
                         app:layout_constraintStart_toEndOf="@+id/constitutionName"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
@@ -1255,9 +1265,9 @@
                         android:layout_height="34dp"
                         android:backgroundTint="@color/basicPurple"
                         android:ems="10"
+                        android:inputType="number"
                         android:textColor="@color/white"
                         android:textSize="12sp"
-                        android:inputType="number"
                         app:layout_constraintStart_toEndOf="@+id/athleticsName"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
@@ -1319,9 +1329,9 @@
                         android:layout_height="34dp"
                         android:backgroundTint="@color/basicPurple"
                         android:ems="10"
+                        android:inputType="number"
                         android:textColor="@color/white"
                         android:textSize="12sp"
-                        android:inputType="number"
                         app:layout_constraintStart_toEndOf="@+id/perceptionName"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
@@ -1510,10 +1520,10 @@
                         android:layout_width="20dp"
                         android:layout_height="34dp"
                         android:backgroundTint="@color/basicPurple"
-                        android:textColor="@color/white"
-                        android:textSize="12sp"
                         android:ems="10"
                         android:inputType="number"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
                         app:layout_constraintStart_toEndOf="@+id/intimidationName"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
@@ -1639,9 +1649,9 @@
                         android:layout_height="34dp"
                         android:backgroundTint="@color/basicPurple"
                         android:ems="10"
+                        android:inputType="number"
                         android:textColor="@color/white"
                         android:textSize="12sp"
-                        android:inputType="number"
                         app:layout_constraintStart_toEndOf="@+id/sleightName"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
@@ -1768,9 +1778,9 @@
                         android:layout_height="34dp"
                         android:backgroundTint="@color/basicPurple"
                         android:ems="10"
+                        android:inputType="number"
                         android:textColor="@color/white"
                         android:textSize="12sp"
-                        android:inputType="number"
                         app:layout_constraintStart_toEndOf="@+id/medicineName"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
@@ -1833,9 +1843,9 @@
                         android:layout_height="34dp"
                         android:backgroundTint="@color/basicPurple"
                         android:ems="10"
+                        android:inputType="number"
                         android:textColor="@color/white"
                         android:textSize="12sp"
-                        android:inputType="number"
                         app:layout_constraintStart_toEndOf="@+id/deceptionName"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
@@ -1898,9 +1908,9 @@
                         android:layout_height="34dp"
                         android:backgroundTint="@color/basicPurple"
                         android:ems="10"
+                        android:inputType="number"
                         android:textColor="@color/white"
                         android:textSize="12sp"
-                        android:inputType="number"
                         app:layout_constraintStart_toEndOf="@+id/natureName"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
@@ -1963,9 +1973,9 @@
                         android:layout_height="34dp"
                         android:backgroundTint="@color/basicPurple"
                         android:ems="10"
+                        android:inputType="number"
                         android:textColor="@color/white"
                         android:textSize="12sp"
-                        android:inputType="number"
                         app:layout_constraintStart_toEndOf="@+id/insightName"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
@@ -2222,9 +2232,9 @@
                         android:layout_height="34dp"
                         android:backgroundTint="@color/basicPurple"
                         android:ems="10"
+                        android:inputType="number"
                         android:textColor="@color/white"
                         android:textSize="12sp"
-                        android:inputType="number"
                         app:layout_constraintStart_toEndOf="@+id/animalName"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
@@ -2239,7 +2249,7 @@
                 android:layout_marginTop="12dp"
                 android:backgroundTint="@color/basicPurple"
                 android:fontFamily="@font/helvetica_bold"
-                android:text="@string/saveButton"
+                android:text="@string/saveButtonNo"
                 android:textColor="@color/background"
                 android:textSize="16dp"
                 app:cornerRadius="10dp"

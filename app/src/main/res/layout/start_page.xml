@@ -15,7 +15,7 @@
         android:id="@+id/constraintLayoutStarsStartPage">
 
         <ImageView
-            android:id="@+id/imageStar15"
+            android:id="@+id/imageStar5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="104dp"

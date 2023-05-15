@@ -13,8 +13,23 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.diceheadproj.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class NoLoginFirstActivity extends AppCompatActivity implements View.OnClickListener {
+    private String CHARACTER_KEY = "Characters";
+    private String CHARACTERISTICS_KEY = "Characteristic";
+    private String SKILL_KEY = "Skills";
+    private String USER_KEY = "Users";
+
+    ConstraintLayout root;
+    FirebaseAuth auth;
+    FirebaseDatabase db;
+    DatabaseReference users_dr;
+    DatabaseReference characters_dr;
+    DatabaseReference characteristics_dr;
+    DatabaseReference skill_dr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +56,14 @@ public class NoLoginFirstActivity extends AppCompatActivity implements View.OnCl
             }
 
         }
+
+        db = FirebaseDatabase.getInstance();
+        characters_dr = db.getReference(CHARACTER_KEY);
+        characteristics_dr = db.getReference(CHARACTERISTICS_KEY);
+        skill_dr = db.getReference(SKILL_KEY);
+        root = (ConstraintLayout) findViewById(R.id.constraintLayoutNoLoggin);
+        auth = FirebaseAuth.getInstance();
+        users_dr = db.getReference(USER_KEY); // Где хранятся пользователи
 
     }
 

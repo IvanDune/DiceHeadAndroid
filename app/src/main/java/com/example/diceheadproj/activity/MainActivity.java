@@ -16,19 +16,36 @@ import android.widget.Toast;
 
 import com.example.diceheadproj.Database;
 import com.example.diceheadproj.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    FirebaseAuth auth;
+    FirebaseDatabase db;
+    DatabaseReference users;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_page);
         Database database = new Database();
 
-        Button butCreate = (Button) findViewById(R.id.createButton);
-        TextView textSignIn = (TextView) findViewById(R.id.textLogIn);
-        TextView textRegistNo = (TextView) findViewById(R.id.textRegistNo);
-        // создаем обработчик нажатия
+        Button butCreate = (Button) findViewById(R.id.createButton); // Create account
+        TextView textSignIn = (TextView) findViewById(R.id.editTextLogIn); // Enter with account
+        TextView textRegistNo = (TextView) findViewById(R.id.textRegistNo); // Enter without account
+
+        auth = FirebaseAuth.getInstance(); // Запуск авторизации данных
+        db = FirebaseDatabase.getInstance(); // Подключаемся к БД
+        users = db.getReference("Users"); // Где хранятся пользователи
+
+        auth.signOut();
+
+
+
+
+        // Cоздаем обработчик нажатия
 
         butCreate.setOnClickListener(this);
         textSignIn.setOnClickListener(this);
@@ -70,12 +87,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         switch(view.getId()){
-            case R.id.textLogIn:
-                Toast.makeText(this, "Переход на экран Входа", Toast.LENGTH_SHORT).show();
+            case R.id.editTextLogIn: // Авторизация
+//                Toast.makeText(this, "Переход на экран Входа", Toast.LENGTH_SHORT).show();
                 Intent intLog = new Intent(this, SignInActivity.class);
                 startActivity(intLog);
                 break;
-            case R.id.createButton:
+            case R.id.createButton: // Create Account
                 Intent intSign = new Intent(this, LogInActivity.class);
                 startActivity(intSign);
                 break;
