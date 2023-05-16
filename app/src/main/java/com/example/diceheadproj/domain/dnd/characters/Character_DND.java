@@ -4,19 +4,19 @@ import java.io.Serializable;
 
 public class Character_DND extends Essence implements Serializable{
 
-    private String ide;
+//    private String ide;
 
     private String name;
 
-    private long raceId;
+//    private long raceId;
 
-    private long raceVariety;
+//    private long raceVariety;
 
-    private long classId;
+//    private long classId;
 
     private Characteristics characteristics;
 
-    private String userUID; // Был UserID
+    private String userEmail; // Был UserEmail
 
     private int level;
 
@@ -42,7 +42,7 @@ public class Character_DND extends Essence implements Serializable{
         this.className=className;
         this.backName=backName;
         this.characteristics = characteristics;
-        this.userUID = userEmail;
+        this.userEmail = userEmail;
     }
 
     public String getOutlookName() {
@@ -69,22 +69,6 @@ public class Character_DND extends Essence implements Serializable{
         this.name = name;
     }
 
-    public Long getRaceId() {
-        return raceId;
-    }
-
-    public void setRaceId(Long raceId) {
-        this.raceId = raceId;
-    }
-
-    public Long getClassId() {
-        return classId;
-    }
-
-    public void setClassId(Long classId) {
-        this.classId = classId;
-    }
-
     public Characteristics getCharacteristics() {
         return characteristics;
     }
@@ -93,25 +77,33 @@ public class Character_DND extends Essence implements Serializable{
         this.characteristics = characteristics;
     }
 
-    public String getIde() {
-        return ide;
+//    public void setRaceId(long raceId) {
+//        this.raceId = raceId;
+//    }
+
+//    public void setRaceVariety(long raceVariety) {
+//        this.raceVariety = raceVariety;
+//    }
+
+//    public void setClassId(long classId) {
+//        this.classId = classId;
+//    }
+
+    public String getUserEmail() {
+        return userEmail;
     }
 
-    public String getUserId() {
-        return userUID;
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
-    public void setUserId(String userEmail) {
-        this.userUID = userEmail;
-    }
-
-    public Long getRaceVariety() {
-        return raceVariety;
-    }
-
-    public void setRaceVariety(Long raceVariety) {
-        this.raceVariety = raceVariety;
-    }
+//    public Long getRaceVariety() {
+//        return raceVariety;
+//    }
+//
+//    public void setRaceVariety(Long raceVariety) {
+//        this.raceVariety = raceVariety;
+//    }
 
     public int getLevel() {
         return level;
@@ -137,13 +129,6 @@ public class Character_DND extends Essence implements Serializable{
         this.raceName = raceName;
     }
 
-    public String getUserUID() {
-        return userUID;
-    }
-
-    public void setUserUID(String userUID) {
-        this.userUID = userUID;
-    }
 
     public CharacterSkill getCharacterSkill() {
         return characterSkill;
@@ -151,24 +136,5 @@ public class Character_DND extends Essence implements Serializable{
 
     public void setCharacterSkill(CharacterSkill characterSkill) {
         this.characterSkill = characterSkill;
-    }
-
-    @Override
-    public String toString() {
-        return "Character_DND{" +
-                "ide='" + ide + '\'' +
-                ", name='" + name + '\'' +
-                ", raceId=" + raceId +
-                ", raceVariety=" + raceVariety +
-                ", classId=" + classId +
-                ", characteristics=" + characteristics +
-                ", userEmail='" + userUID + '\'' +
-                ", level=" + level +
-                ", className='" + className + '\'' +
-                ", raceName='" + raceName + '\'' +
-                ", outlookName='" + outlookName + '\'' +
-                ", backName='" + backName + '\'' +
-                ", characterSkill=" + characterSkill +
-                '}';
     }
 }

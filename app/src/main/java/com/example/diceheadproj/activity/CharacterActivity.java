@@ -123,22 +123,22 @@ public class CharacterActivity extends AppCompatActivity implements View.OnClick
                 Intent intentTraits = new Intent(this,TraitsActivity.class);
                 startActivity(intentTraits);
                 break;
-            case R.id.constraintLayoutRace:
-                Intent intentRace = new Intent(this, RaceActivity.class);
-                startActivity(intentRace);
-                break;
-            case R.id.constraintLayoutClass:
-                Intent intentClass = new Intent(this, ClassActivity.class);
-                startActivity(intentClass);
-                break;
-            case R.id.constraintLayoutOutlook:
-                Intent intentOutlook = new Intent(this, OutlookActivity.class);
-                startActivity(intentOutlook);
-                break;
-            case R.id.constraintLayoutBack:
-                Intent intentBack = new Intent(this, BackActivity.class);
-                startActivity(intentBack);
-                break;
+//            case R.id.constraintLayoutRace:
+//                Intent intentRace = new Intent(this, RaceActivity.class);
+//                startActivity(intentRace);
+//                break;
+//            case R.id.constraintLayoutClass:
+//                Intent intentClass = new Intent(this, ClassActivity.class);
+//                startActivity(intentClass);
+//                break;
+//            case R.id.constraintLayoutOutlook:
+//                Intent intentOutlook = new Intent(this, OutlookActivity.class);
+//                startActivity(intentOutlook);
+//                break;
+//            case R.id.constraintLayoutBack:
+//                Intent intentBack = new Intent(this, BackActivity.class);
+//                startActivity(intentBack);
+//                break;
             case R.id.imageLife1:
                 if(imageLife1.getAlpha()==0F)
                     imageLife1.ALPHA.set(imageLife1,1F);
@@ -393,16 +393,22 @@ public class CharacterActivity extends AppCompatActivity implements View.OnClick
 //                newCharacter.setCharacterSkill(characterSkill);
 
 
-                Intent noLoginFirstSave = new Intent(this,NoLoginFirstActivity.class);
+                String email_St = auth.getCurrentUser().getEmail().toString();
+
+                Intent loginFirstSave = new Intent(this,LoginFirstActivity.class);
                 Characteristics ch = new Characteristics(0,0,0,0,0,0,0,0,0,0,0,0);
                 CharacterSkill ch_sk = new CharacterSkill(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
-                Character_DND nc = new Character_DND("n","o","r","c","b",ch,"0");
+                Character_DND nc = new Character_DND(textCharacterName.toString(),spinnerRace.getSelectedItem().toString(),
+                        spinnerClasses.getSelectedItem().toString(),spinnerBack.getSelectedItem().toString(),
+                        spinnerOutlook.getSelectedItem().toString(), ch, email_St);
 
-                nc.setUserUID(auth.getCurrentUser().getUid());
+
+
+
                 nc.setCharacteristics(ch);
                 nc.setCharacterSkill(ch_sk);
                 characters_dr.push().setValue(nc);
-                startActivity(noLoginFirstSave);
+                startActivity(loginFirstSave);
 
 
 
