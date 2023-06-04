@@ -19,6 +19,13 @@
         tools:replace="android:icon"
         tools:targetApi="31">
         <activity
+            android:name=".activity.WeaponActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".activity.LoginFirstActivity"
             android:exported="false">
             <meta-data
@@ -40,7 +47,7 @@
             android:value="com.example" />
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-8171992067597956~5100336090"/>
+            android:value="ca-app-pub-8171992067597956~5100336090" />
 
         <activity
             android:name=".activity.BackActivity"

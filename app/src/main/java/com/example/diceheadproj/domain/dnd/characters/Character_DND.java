@@ -20,6 +20,8 @@ public class Character_DND extends Essence implements Serializable{
 
     private int level;
 
+    private int masterBonus;
+
     private String className;
 
     private String raceName;
@@ -136,5 +138,13 @@ public class Character_DND extends Essence implements Serializable{
 
     public void setCharacterSkill(CharacterSkill characterSkill) {
         this.characterSkill = characterSkill;
+    }
+
+    public int getMasterBonus() {
+        return masterBonus;
+    }
+
+    public void setMasterBonus(int masterBonus) {
+        this.masterBonus = masterBonus;
     }
 }

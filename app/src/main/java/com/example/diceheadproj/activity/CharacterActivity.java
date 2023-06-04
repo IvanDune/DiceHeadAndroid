@@ -30,6 +30,8 @@ import com.example.diceheadproj.domain.Races;
 import com.example.diceheadproj.domain.dnd.characters.Character_DND;
 import com.example.diceheadproj.domain.dnd.characters.CharacterSkill;
 import com.example.diceheadproj.domain.dnd.characters.Characteristics;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -68,6 +70,8 @@ public class CharacterActivity extends AppCompatActivity implements View.OnClick
     DatabaseReference characters_dr;
     DatabaseReference characteristics_dr;
     DatabaseReference skill_dr;
+
+    ObjectMapper objectMapper = new ObjectMapper();
 
 
     @Override
@@ -122,6 +126,10 @@ public class CharacterActivity extends AppCompatActivity implements View.OnClick
             case R.id.linearLayoutTraits:
                 Intent intentTraits = new Intent(this,TraitsActivity.class);
                 startActivity(intentTraits);
+                break;
+            case R.id.buttonWeapon:
+                Intent intentWeapon = new Intent(this,WeaponActivity.class);
+                startActivity(intentWeapon);
                 break;
 //            case R.id.constraintLayoutRace:
 //                Intent intentRace = new Intent(this, RaceActivity.class);
@@ -398,7 +406,7 @@ public class CharacterActivity extends AppCompatActivity implements View.OnClick
                 Intent loginFirstSave = new Intent(this,LoginFirstActivity.class);
                 Characteristics ch = new Characteristics(0,0,0,0,0,0,0,0,0,0,0,0);
                 CharacterSkill ch_sk = new CharacterSkill(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
-                Character_DND nc = new Character_DND(textCharacterName.toString(),spinnerRace.getSelectedItem().toString(),
+                Character_DND nc = new Character_DND(textCharacterName.getText().toString(),spinnerRace.getSelectedItem().toString(),
                         spinnerClasses.getSelectedItem().toString(),spinnerBack.getSelectedItem().toString(),
                         spinnerOutlook.getSelectedItem().toString(), ch, email_St);
 
@@ -407,7 +415,15 @@ public class CharacterActivity extends AppCompatActivity implements View.OnClick
 
                 nc.setCharacteristics(ch);
                 nc.setCharacterSkill(ch_sk);
-                characters_dr.push().setValue(nc);
+                String json;
+
+                try {
+                    json = objectMapper.writeValueAsString(nc);
+                    characters_dr.push().setValue(json);
+                } catch (JsonProcessingException e) {
+                    e.printStackTrace();
+                }
+
                 startActivity(loginFirstSave);
 
 
@@ -460,6 +476,9 @@ public class CharacterActivity extends AppCompatActivity implements View.OnClick
 
         ConstraintLayout constraintLayoutBack = (ConstraintLayout) findViewById(R.id.constraintLayoutBack);
         constraintLayoutBack.setOnClickListener(this);
+
+        Button buttonWeapon = (Button) findViewById(R.id.buttonWeapon);
+        buttonWeapon.setOnClickListener(this);
 
         spinnerRace = findViewById(R.id.spinnerRace);
         spinnerOutlook = findViewById(R.id.spinnerOutlook);

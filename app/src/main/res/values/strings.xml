@@ -82,4 +82,10 @@
     <string name="saveButton">Сохранить изменения</string>
     <string name="saveButtonNo">Авторизируйтесь</string>
 
+
+    <string name="addWeapon">Добавить оружие</string>
+    <string name="addWeaponNFC">Добавить с NFC</string>
+
+
+
 </resources>

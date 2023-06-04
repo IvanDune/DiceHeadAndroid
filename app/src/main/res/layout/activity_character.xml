@@ -627,7 +627,7 @@
                 <EditText
                     android:id="@+id/textDiceResult"
                     android:layout_width="20dp"
-                    android:layout_height="34dp"
+                    android:layout_height="38dp"
                     android:layout_marginStart="4dp"
                     android:backgroundTint="@color/background"
                     android:fontFamily="@font/helvetica_bold"
@@ -2246,7 +2246,7 @@
                 android:id="@+id/saveCharacterButton"
                 android:layout_width="340dp"
                 android:layout_height="48dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="100dp"
                 android:backgroundTint="@color/basicPurple"
                 android:fontFamily="@font/helvetica_bold"
                 android:text="@string/saveButtonNo"
@@ -2256,6 +2256,72 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayoutSkills" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayoutButtons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayoutSkills">
+
+                <Button
+                    android:id="@+id/buttonEquip"
+                    android:layout_width="180dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="10dp"
+                    android:backgroundTint="@color/basicPurple"
+                    android:fontFamily="@font/helvetica_bold"
+                    android:text="Снаряжение"
+                    android:textColor="@color/background"
+                    android:textSize="12dp"
+                    app:cornerRadius="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/buttonWeapon"
+                    android:layout_width="180dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:backgroundTint="@color/basicPurple"
+                    android:fontFamily="@font/helvetica_bold"
+                    android:text="Оружие"
+                    android:textColor="@color/background"
+                    android:textSize="12dp"
+                    app:cornerRadius="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/buttonAbilities"
+                    android:layout_width="180dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginEnd="10dp"
+                    android:backgroundTint="@color/basicPurple"
+                    android:fontFamily="@font/helvetica_bold"
+                    android:text="Умения"
+                    android:textColor="@color/background"
+                    android:textSize="12dp"
+                    app:cornerRadius="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/buttonLanguages"
+                    android:layout_width="180dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="50dp"
+                    android:backgroundTint="@color/basicPurple"
+                    android:fontFamily="@font/helvetica_bold"
+                    android:text="Владения и языки"
+                    android:textColor="@color/background"
+                    android:textSize="12dp"
+                    app:cornerRadius="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
