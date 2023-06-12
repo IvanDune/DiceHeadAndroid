@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="basicPurple">#9C80E7</color>
     <color name="background">#040719</color>
+<!--    <color name="background_filter_chip">#040719</color>-->
 </resources>

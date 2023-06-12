@@ -1,5 +1,6 @@
 package com.example.diceheadproj.activity;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -30,6 +31,7 @@ import com.example.diceheadproj.domain.Races;
 import com.example.diceheadproj.domain.dnd.characters.Character_DND;
 import com.example.diceheadproj.domain.dnd.characters.CharacterSkill;
 import com.example.diceheadproj.domain.dnd.characters.Characteristics;
+import com.example.diceheadproj.logic.Randomizer;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.android.material.snackbar.Snackbar;
@@ -51,6 +53,8 @@ public class CharacterActivity extends AppCompatActivity implements View.OnClick
     private ImageView imageSecrecy, imageConviction, imageAnimal;
     private ImageView imageAcrobatics, imageAnalise, imageAthletics, imagePerception, imageSurvival, imagePerformance, imageIntimidation;
 
+    private EditText editTextNumberStrength, editTextNumberDexterity, editTextNumberConstitution, editTextNumberWisdom, editTextNumberIntelligence, editTextNumberCharisma;
+
     private Spinner spinnerRace;
     private Spinner spinnerOutlook;
     private Spinner spinnerBack;
@@ -63,6 +67,8 @@ public class CharacterActivity extends AppCompatActivity implements View.OnClick
     private String SKILL_KEY = "Skills";
     private String USER_KEY = "Users";
 
+    private String weaponJson = new String();
+
     ConstraintLayout root;
     FirebaseAuth auth;
     FirebaseDatabase db;
@@ -72,6 +78,8 @@ public class CharacterActivity extends AppCompatActivity implements View.OnClick
     DatabaseReference skill_dr;
 
     ObjectMapper objectMapper = new ObjectMapper();
+
+
 
 
     @Override
@@ -90,6 +98,14 @@ public class CharacterActivity extends AppCompatActivity implements View.OnClick
         }
 
         init();
+
+        Bundle arguments = getIntent().getExtras();
+        Integer genChar = Integer.parseInt(arguments.get("genChar").toString());
+        weaponJson = arguments.get("weapon").toString();
+
+        if(genChar == 1){
+            generateCharacter();
+        }
 
 
         db = FirebaseDatabase.getInstance();
@@ -115,7 +131,27 @@ public class CharacterActivity extends AppCompatActivity implements View.OnClick
 
     }
 
-    @SuppressLint("RestrictedApi")
+    private void generateCharacter() {
+        spinnerClasses.setSelection(Randomizer.rand(12));
+        spinnerRace.setSelection(Randomizer.rand(9));
+        spinnerOutlook.setSelection(Randomizer.rand(9));
+        spinnerBack.setSelection(Randomizer.rand(14));
+
+        int[] charact = new int[6];
+        for (int i=0;i<6;i++){
+            charact[i] = Randomizer.characteristic();
+        }
+        editTextNumberStrength.setText(Integer.toString(charact[0]));
+        editTextNumberDexterity.setText(Integer.toString(charact[1]));
+        editTextNumberConstitution.setText(Integer.toString(charact[2]));
+        editTextNumberIntelligence.setText(Integer.toString(charact[3]));
+        editTextNumberWisdom.setText(Integer.toString(charact[4]));
+        editTextNumberCharisma.setText(Integer.toString(charact[5]));
+
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
+    @SuppressLint({"RestrictedApi", "NewApi"})
     @Override
     public void onClick(View view) {
         switch (view.getId()){
@@ -131,22 +167,6 @@ public class CharacterActivity extends AppCompatActivity implements View.OnClick
                 Intent intentWeapon = new Intent(this,WeaponActivity.class);
                 startActivity(intentWeapon);
                 break;
-//            case R.id.constraintLayoutRace:
-//                Intent intentRace = new Intent(this, RaceActivity.class);
-//                startActivity(intentRace);
-//                break;
-//            case R.id.constraintLayoutClass:
-//                Intent intentClass = new Intent(this, ClassActivity.class);
-//                startActivity(intentClass);
-//                break;
-//            case R.id.constraintLayoutOutlook:
-//                Intent intentOutlook = new Intent(this, OutlookActivity.class);
-//                startActivity(intentOutlook);
-//                break;
-//            case R.id.constraintLayoutBack:
-//                Intent intentBack = new Intent(this, BackActivity.class);
-//                startActivity(intentBack);
-//                break;
             case R.id.imageLife1:
                 if(imageLife1.getAlpha()==0F)
                     imageLife1.ALPHA.set(imageLife1,1F);
@@ -415,6 +435,8 @@ public class CharacterActivity extends AppCompatActivity implements View.OnClick
 
                 nc.setCharacteristics(ch);
                 nc.setCharacterSkill(ch_sk);
+                nc.setWeapon(weaponJson);
+
                 String json;
 
                 try {
@@ -609,6 +631,13 @@ public class CharacterActivity extends AppCompatActivity implements View.OnClick
         spinnerOutlook.setAdapter(adapterOutlook);
         spinnerBack.setAdapter(adapterBack);
         spinnerClasses.setAdapter(adapterClasses);
+
+        editTextNumberStrength = (EditText) findViewById(R.id.editTextNumberStrength);
+        editTextNumberDexterity = (EditText) findViewById(R.id.editTextNumberDexterity);
+        editTextNumberConstitution = (EditText) findViewById(R.id.editTextNumberConstitution);
+        editTextNumberWisdom = (EditText) findViewById(R.id.editTextNumberWisdom);
+        editTextNumberIntelligence = (EditText) findViewById(R.id.editTextNumberIntelligence);
+        editTextNumberCharisma = (EditText) findViewById(R.id.editTextNumberCharisma);
 
     }
 

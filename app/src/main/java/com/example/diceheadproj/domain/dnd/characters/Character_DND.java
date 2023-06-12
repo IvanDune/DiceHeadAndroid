@@ -32,6 +32,8 @@ public class Character_DND extends Essence implements Serializable{
 
     private CharacterSkill characterSkill;
 
+    private String weapon;
+
     public Character_DND(){
 
     }
@@ -146,5 +148,13 @@ public class Character_DND extends Essence implements Serializable{
 
     public void setMasterBonus(int masterBonus) {
         this.masterBonus = masterBonus;
+    }
+
+    public String getWeapon() {
+        return weapon;
+    }
+
+    public void setWeapon(String weapon) {
+        this.weapon = weapon;
     }
 }

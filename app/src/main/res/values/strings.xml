@@ -81,6 +81,14 @@
 
     <string name="saveButton">Сохранить изменения</string>
     <string name="saveButtonNo">Авторизируйтесь</string>
+    <string name="genDice">Генерация бросков</string>
+    <string name="rollDice">Бросить</string>
+    <string name="clearDice">Очистить</string>
+    <string name="textResult">Здесь будет результат вашего броска</string>
+    <string name="textDiceResult">Вы бросили: </string>
+    <string name="textNumberDice">Количество дайсов: </string>
+    <string name="textValueDice">Значение: </string>
+    <string name="textModDice">Модификатор: </string>
 
 
     <string name="addWeapon">Добавить оружие</string>

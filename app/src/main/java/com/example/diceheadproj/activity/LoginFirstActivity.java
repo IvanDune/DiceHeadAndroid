@@ -49,6 +49,7 @@ public class LoginFirstActivity extends AppCompatActivity implements View.OnClic
     CharacterAdapter characterAdapter;
     RecyclerView characterRec;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +64,7 @@ public class LoginFirstActivity extends AppCompatActivity implements View.OnClic
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                     String st = dataSnapshot.getValue().toString();
+                    String key = dataSnapshot.getKey().toString();
                     Character_DND character_dnd = new Character_DND();
                     try {
                         character_dnd = objectMapper.readValue(st,Character_DND.class);
@@ -86,8 +88,12 @@ public class LoginFirstActivity extends AppCompatActivity implements View.OnClic
             }
         });
 
-        setCharacterRecycler(character_dndList);
-    }
+//        finish();
+//        overridePendingTransition(0, 0);
+//        startActivity(getIntent());
+//        overridePendingTransition(0, 0);
+//        setCharacterRecycler(character_dndList);
+    }   
 
     private void setCharacterRecycler(List<Character_DND> character_dndList) {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this,RecyclerView.HORIZONTAL,false);
@@ -97,6 +103,9 @@ public class LoginFirstActivity extends AppCompatActivity implements View.OnClic
 
         characterAdapter = new CharacterAdapter(this, character_dndList);
         characterRec.setAdapter(characterAdapter);
+
+
+
     }
 
     @Override
@@ -104,10 +113,14 @@ public class LoginFirstActivity extends AppCompatActivity implements View.OnClic
         switch (view.getId()){
             case R.id.imageCreateCharacter:
                 Intent intCreateChar = new Intent(this, CharacterActivity.class);
+                intCreateChar.putExtra("genChar",0);
+                intCreateChar.putExtra("weapon","");
                 startActivity(intCreateChar);
                 break;
             case R.id.imageGenerateCharacter:
-                Intent intGenChar = new Intent(this, GenerateDiceActivity.class);
+                Intent intGenChar = new Intent(this, CharacterActivity.class);
+                intGenChar.putExtra("genChar",1);
+                intGenChar.putExtra("weapon","");
                 startActivity(intGenChar);
                 break;
             case R.id.generateDiceLogin:

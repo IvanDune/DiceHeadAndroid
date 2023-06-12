@@ -76,10 +76,14 @@ public class NoLoginFirstActivity extends AppCompatActivity implements View.OnCl
                 break;
             case R.id.imageCreateCharacter:
                 Intent intCreateChar = new Intent(this, CharacterActivity.class);
+                intCreateChar.putExtra("genChar",0);
+                intCreateChar.putExtra("weapon","");
                 startActivity(intCreateChar);
                 break;
             case R.id.imageGenerateCharacter:
-                Intent intGenChar = new Intent(this, GenerateDiceActivity.class);
+                Intent intGenChar = new Intent(this, CharacterActivity.class);
+                intGenChar.putExtra("genChar",1);
+                intGenChar.putExtra("weapon","");
                 startActivity(intGenChar);
                 break;
             case R.id.constraintLayoutCreateProfile:
